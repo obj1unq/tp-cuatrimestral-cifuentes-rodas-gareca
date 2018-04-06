@@ -1,6 +1,58 @@
 
-test "testX" {
+import unCapo.*
 
-	assert.that(true)
+describe "rolando uncapo"{
+	
+	
+test "Se increentara  en 1 el valor de lucha de rolando. Valor inicial de lucha 3 valor final 4" {
+		rolando.incrementarValorBaseDeLucha()
+		assert.equals(4,rolando.vaLorBaseLucha())
+		}
+		
+test "Se increentara  en 1 el valor de hechiceria  de rolando. Valor inicial de hechiceria 1 valor final 2"{
+		rolando.incrementarValorBaseDeHechiceria()
+		assert.equals(2,rolando.valorBaseHechiceria())
+		}
+		
+test "Agrega un artefacto a rolando"{
+		rolando.obtenerUnArtefacto(espadaDelDestino)
+		assert.equals(#{espadaDelDestino},rolando.artefactosReunidos())
+		}
+		
+test "Retorna el valor de lucha base inicial de rolando el cual es igual a 3"{
+		assert.equals(rolando.vaLorBaseLucha()==3)
+		}
+		
+test "Retorna el valor de hechiceria base inicial de rolando el cual es igual a 1"{
+		assert.equals(rolando.valorBaseHechiceria()==1)
+		}
 
-}
+test "Retorna el valor de lucha que dan los artefactos reunidos"{
+		rolando.obtenerUnArtefacto(espadaDelDestino)
+		rolando.obtenerUnArtefacto(collarDivino)
+		rolando.obtenerUnArtefacto(libroDeHechizos)
+		assert.equals(4,rolando.valorLuchaArtefactos())
+		}
+		
+test "Retorna el valor de hechiceria  que dan los artefactos reunidos"{
+		rolando.obtenerUnArtefacto(espadaDelDestino)
+		rolando.obtenerUnArtefacto(collarDivino)
+		rolando.obtenerUnArtefacto(libroDeHechizos)
+		assert.equals(2,rolando.valorHechiceriaArtefactos())
+		}
+		
+test "Retorna el valor de lucha compuesto por el valor base + el valor que otorga los artefactos reunidos"{
+		rolando.obtenerUnArtefacto(espadaDelDestino)
+		rolando.obtenerUnArtefacto(collarDivino)
+		rolando.obtenerUnArtefacto(libroDeHechizos)
+		assert.equals(7,rolando.valorLucha())
+		}
+		
+test "Retorna el valor de hechiceria compuesto por el valor base + el valor que otorga los artefactos reunidos"{
+		rolando.obtenerUnArtefacto(espadaDelDestino)
+		rolando.obtenerUnArtefacto(collarDivino)
+		rolando.obtenerUnArtefacto(libroDeHechizos)
+		assert.equals(3,rolando.valorHechiceria())
+		}
+}	
+		
