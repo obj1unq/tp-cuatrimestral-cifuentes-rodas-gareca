@@ -104,7 +104,10 @@ object libroDeHechizos{
  	
  var refuerzo = ninguna
 
-
+	/*Cambia el refuerzo de la armadura, este metodo se hace solo para realizar los texts*/
+	method cambiarRefuerzo(_refuerzo) {refuerzo = _refuerzo}
+	
+	
  	/*Retorna los puntos de lucha que da este artefacto*/
  	method puntosDeLucha(capo)= return 2 + refuerzo.puntosLuchaExtra(capo)
  	

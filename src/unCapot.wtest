@@ -54,5 +54,47 @@ test "Retorna el valor de hechiceria compuesto por el valor base + el valor que 
 		rolando.obtenerUnArtefacto(libroDeHechizos)
 		assert.equals(3,rolando.valorHechiceria())
 		}
+		
+test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo ninguna
+      ademas retorna el valor de lucha y hechiceria de rolando al encontrar la armadura"{
+		rolando.obtenerUnArtefacto(armadura)
+		assert.equals(2,armadura.puntosDeLucha(rolando))
+		assert.equals(0,armadura.puntosDeHechiceria(rolando))
+		assert.equals(1,rolando.valorHechiceria())
+		assert.equals(5,rolando.valorLucha())
+		}
+		
+test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo cotaDeMalla
+	  ademas retorna el valor de lucha y hechiceria de rolando al encontrar la armadura"{
+		armadura.cambiarRefuerzo(cotaDeMalla)
+		rolando.obtenerUnArtefacto(armadura)
+		assert.equals(3,armadura.puntosDeLucha(rolando))
+		assert.equals(0,armadura.puntosDeHechiceria(rolando))
+		assert.equals(1,rolando.valorHechiceria())
+		assert.equals(6,rolando.valorLucha())
+		}
+		
+test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo bendicion
+	  ademas retorna el valor de lucha y hechiceria de rolando al encontrar la armadura"{
+		armadura.cambiarRefuerzo(bendicion)
+		rolando.obtenerUnArtefacto(armadura)
+		assert.equals(2,armadura.puntosDeLucha(rolando))
+		assert.equals(1,armadura.puntosDeHechiceria(rolando))
+		assert.equals(2,rolando.valorHechiceria())
+		assert.equals(5,rolando.valorLucha())
+		}
+		
+test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo hechizo, 
+	  ademas retorna el valor de lucha y hechiceria de rolando al encontrar la armadura "{
+		armadura.cambiarRefuerzo(hechizo)
+		rolando.obtenerUnArtefacto(armadura)
+		rolando.incrementarValorBaseDeHechiceria()
+		rolando.incrementarValorBaseDeHechiceria()
+		rolando.incrementarValorBaseDeHechiceria()
+		assert.equals(2,armadura.puntosDeLucha(rolando))
+		assert.equals(2,armadura.puntosDeHechiceria(rolando))
+		assert.equals(6,rolando.valorHechiceria())
+		assert.equals(5,rolando.valorLucha())
+		}
 }	
 		
