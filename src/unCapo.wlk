@@ -56,8 +56,10 @@ var artefactos = #{}
 	
 	/*Encuentra un elemento del bando del sur*/
 	method encontrarElemento(_elemento){
-			_elemento.encontrar(self)
+			_elemento.encontradoPor(self)
 			}
+	
+	
 			
 }
 //-----------------------------------------------------------------------------------------------------------
@@ -188,8 +190,8 @@ object libroDeHechizos{
 
 object bandoDelSur{
 
-var tesoro = 0
-var reservasDeCarbon =0
+var property tesoro = 0
+var property reservasDeCarbon =0
 
 /*Aumenta el valor del tesoro*/
 method aumentarTesoro(){
@@ -207,7 +209,7 @@ method aumentarReservasDeCarbon(){
 object cumuloDeCarbon{
 	
 	/*Aumenta las reservas de carbon del bando del sur*/
-	method encontrar(capo){
+	method encontradoPor(capo){
 		bandoDelSur.aumentarReservasDeCarbon()
 		}	
 } 
@@ -217,7 +219,7 @@ object cumuloDeCarbon{
 object cofresito{
 	
 	/*Aumenta las reservas de oro del bando del sur*/
-	method encontrar(capo){
+	method encontradoPor(capo){
 		bandoDelSur.aumentarTesoro()
 		}
 		
@@ -228,7 +230,7 @@ object cofresito{
 object viejoSabio{
 	
 	/*Aumenta el valor base de hechiceria y lucha del capo que lo encuentra*/
-	method encontrar(capo){
+	method encontradoPor(capo){
 		capo.incrementarValorBaseDeHechiceria()
 		capo.incrementarValorBaseDeLucha()
 		}

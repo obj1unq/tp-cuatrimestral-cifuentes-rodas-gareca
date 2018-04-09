@@ -96,5 +96,25 @@ test "Retorna el valor extra de lucha y hechiceria que da el armadura con un ref
 		assert.equals(6,rolando.valorHechiceria())
 		assert.equals(5,rolando.valorLucha())
 		}
+test "Rolando se encuentra un cofre y las acumula en El Bando Del Sur en la cual pertenece"{
+	rolando.encontrarElemento(cofresito)	
+	assert.equals(100,bandoDelSur.tesoro())
+	}
+
+test "Rolando se encuentra un cumulo de carbon y las acumula en El Bando del Sur en la cual pertenece"{
+	rolando.encontrarElemento(cumuloDeCarbon)
+	assert.equals(50,bandoDelSur.reservasDeCarbon())	
+	}
+	
+test "Rolando se encuentra al viejo Sabio e incrementa en uno sus atributos"{
+	rolando.encontrarElemento(viejoSabio)
+	assert.equals(4,rolando.vaLorBaseLucha())
+	assert.equals(2,rolando.valorBaseHechiceria())
+	}
+
+
+
 }	
+
+
 		
