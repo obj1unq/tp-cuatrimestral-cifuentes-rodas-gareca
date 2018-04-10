@@ -108,11 +108,40 @@ test "Rolando se encuentra un cumulo de carbon y las acumula en El Bando del Sur
 	
 test "Rolando se encuentra al viejo Sabio e incrementa en uno sus atributos"{
 	rolando.encontrarElemento(viejoSabio)
-	assert.equals(4,rolando.vaLorBaseLucha())
-	assert.equals(2,rolando.valorBaseHechiceria())
+	assert.equals(4,rolando.lucha())
+	assert.equals(2,rolando.hechiceria())
 	}
 
+test "Rolando se encuentra el espejo fantastico pero no tiene mas artefactos"{
+	rolando.obtenerUnArtefacto(espejoFantastico)
+	assert.equals(0, espejoFantastico.puntosDeHechiceria(rolando))
+	assert.equals(0, espejoFantastico.puntosDeLucha(rolando))
+	assert.equals(3,rolando.valorLucha())
+	assert.equals(1,rolando.valorHechiceria())
+	}
+	
+test "Rolando se encuentra el espejo fantastico y tiene la armadura"{
+	rolando.obtenerUnArtefacto(espejoFantastico)
+	rolando.obtenerUnArtefacto(armadura)
+	assert.equals(0,armadura.puntosDeHechiceria(rolando))
+	assert.equals(2,armadura.puntosDeLucha(rolando))
+	assert.equals(0, espejoFantastico.puntosDeHechiceria(rolando))
+	assert.equals(2, espejoFantastico.puntosDeLucha(rolando))
+	assert.equals(7,rolando.valorLucha())
+	assert.equals(1,rolando.valorHechiceria())
+	}
 
+test "Rolando se encuentra el espejo fantastico y tiene la todos los artefactos"{
+	rolando.obtenerUnArtefacto(espadaDelDestino)
+	rolando.obtenerUnArtefacto(libroDeHechizos)
+	rolando.obtenerUnArtefacto(espejoFantastico)
+	rolando.obtenerUnArtefacto(armadura)
+	rolando.obtenerUnArtefacto(collarDivino)
+	assert.equals(0, espejoFantastico.puntosDeHechiceria(rolando))
+	assert.equals(3, espejoFantastico.puntosDeLucha(rolando))
+	assert.equals(12,rolando.valorLucha())
+	assert.equals(3,rolando.valorHechiceria())
+	}
 
 }	
 
