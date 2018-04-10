@@ -1,8 +1,8 @@
 
 object rolando {
 	
-var lucha = 3
-var hechiceria = 1
+var property lucha = 3
+var property hechiceria = 1
 var artefactos = #{}
 
 
@@ -21,14 +21,6 @@ var artefactos = #{}
 	
 	/*Retorna todos los artefactos reunidos por rolando*/
 	method artefactosReunidos() = return artefactos
-	
-	
-	/*Retorna el valor base de lucha de rolando */
-	method vaLorBaseLucha()= return lucha
-	
-	
-	/*Retorna el valor base de hechiceria de rolando */
-	method valorBaseHechiceria() = return hechiceria
 	
 	
 	/*Retorna la sumatoria de valor de lucha que otorga los artefactos */
@@ -78,7 +70,7 @@ object espadaDelDestino{
 object libroDeHechizos{
 
 	/*Retorna los puntos de lucha que da este artefacto*/
-	method puntosDeHechiceria(capo) = return capo.valorBaseHechiceria()
+	method puntosDeHechiceria(capo) = return capo.hechiceria()
 	
 	/*Retorna los puntos de hechiceria que da este artefacto*/
 	method puntosDeLucha(capo)= return 0 
@@ -150,7 +142,7 @@ object libroDeHechizos{
  		
  		/*Agrega puntos extra a la armadura*/
  		method puntosHechiceriaExtra(capo) { 
- 		if (capo.valorBaseHechiceria()>3) {
+ 		if (capo.hechiceria()>3) {
  			return 2
  			}else{
  				return 0
@@ -176,12 +168,20 @@ object libroDeHechizos{
  	
  	/*Retorna los puntos de lucha que da este artefacto*/
  	method puntosDeLucha(capo){
+ 		try{
  		return capo.elMejorArtefacto(self).puntosDeLucha(capo)
+ 		}catch e{
+ 			return 0
+ 		}
  		}
  		
  	/*Retorna los puntos de hechiceria que da este artefacto*/	
  	method puntosDeHechiceria(capo){
+ 		try{
  		return capo.elMejorArtefacto(self).puntosDeHechiceria(capo)
+ 		}catch e{
+ 			return 0
+ 		}
  		}
  }
  
