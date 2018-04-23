@@ -1,5 +1,6 @@
-
+import artefactos.*
 import unCapo.*
+import elementos.*
 
 describe "rolando uncapo"{
 	
