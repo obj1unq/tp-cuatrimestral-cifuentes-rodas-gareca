@@ -46,14 +46,14 @@ test "Retorna el valor de lucha compuesto por el valor base + el valor que otorg
 		rolando.obtenerUnArtefacto(espadaDelDestino)
 		rolando.obtenerUnArtefacto(collarDivino)
 		rolando.obtenerUnArtefacto(libroDeHechizos)
-		assert.equals(7,rolando.valorLucha())
+		assert.equals(7,rolando.lucha())
 		}
 		
 test "Retorna el valor de hechiceria compuesto por el valor base + el valor que otorga los artefactos reunidos"{
 		rolando.obtenerUnArtefacto(espadaDelDestino)
 		rolando.obtenerUnArtefacto(collarDivino)
 		rolando.obtenerUnArtefacto(libroDeHechizos)
-		assert.equals(3,rolando.valorHechiceria())
+		assert.equals(3,rolando.hechiceria())
 		}
 		
 test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo ninguna
@@ -61,8 +61,8 @@ test "Retorna el valor extra de lucha y hechiceria que da el armadura con un ref
 		rolando.obtenerUnArtefacto(armadura)
 		assert.equals(2,armadura.puntosDeLucha(rolando))
 		assert.equals(0,armadura.puntosDeHechiceria(rolando))
-		assert.equals(1,rolando.valorHechiceria())
-		assert.equals(5,rolando.valorLucha())
+		assert.equals(1,rolando.hechiceria())
+		assert.equals(5,rolando.lucha())
 		}
 		
 test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo cotaDeMalla
@@ -71,8 +71,8 @@ test "Retorna el valor extra de lucha y hechiceria que da el armadura con un ref
 		rolando.obtenerUnArtefacto(armadura)
 		assert.equals(3,armadura.puntosDeLucha(rolando))
 		assert.equals(0,armadura.puntosDeHechiceria(rolando))
-		assert.equals(1,rolando.valorHechiceria())
-		assert.equals(6,rolando.valorLucha())
+		assert.equals(1,rolando.hechiceria())
+		assert.equals(6,rolando.lucha())
 		}
 		
 test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo bendicion
@@ -81,8 +81,8 @@ test "Retorna el valor extra de lucha y hechiceria que da el armadura con un ref
 		rolando.obtenerUnArtefacto(armadura)
 		assert.equals(2,armadura.puntosDeLucha(rolando))
 		assert.equals(1,armadura.puntosDeHechiceria(rolando))
-		assert.equals(2,rolando.valorHechiceria())
-		assert.equals(5,rolando.valorLucha())
+		assert.equals(2,rolando.hechiceria())
+		assert.equals(5,rolando.lucha())
 		}
 		
 test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo hechizo, 
@@ -94,8 +94,8 @@ test "Retorna el valor extra de lucha y hechiceria que da el armadura con un ref
 		rolando.incrementarValorBaseDeHechiceria()
 		assert.equals(2,armadura.puntosDeLucha(rolando))
 		assert.equals(2,armadura.puntosDeHechiceria(rolando))
-		assert.equals(6,rolando.valorHechiceria())
-		assert.equals(5,rolando.valorLucha())
+		assert.equals(6,rolando.hechiceria())
+		assert.equals(5,rolando.lucha())
 		}
 test "Rolando se encuentra un cofre y las acumula en El Bando Del Sur en la cual pertenece"{
 	rolando.encontrarElemento(cofresito)	
@@ -117,8 +117,8 @@ test "Rolando se encuentra el espejo fantastico pero no tiene mas artefactos"{
 	rolando.obtenerUnArtefacto(espejoFantastico)
 	assert.equals(0, espejoFantastico.puntosDeHechiceria(rolando))
 	assert.equals(0, espejoFantastico.puntosDeLucha(rolando))
-	assert.equals(3,rolando.valorLucha())
-	assert.equals(1,rolando.valorHechiceria())
+	assert.equals(3,rolando.lucha())
+	assert.equals(1,rolando.hechiceria())
 	}
 	
 test "Rolando se encuentra el espejo fantastico y tiene la armadura"{
@@ -128,8 +128,8 @@ test "Rolando se encuentra el espejo fantastico y tiene la armadura"{
 	assert.equals(2,armadura.puntosDeLucha(rolando))
 	assert.equals(0, espejoFantastico.puntosDeHechiceria(rolando))
 	assert.equals(2, espejoFantastico.puntosDeLucha(rolando))
-	assert.equals(7,rolando.valorLucha())
-	assert.equals(1,rolando.valorHechiceria())
+	assert.equals(7,rolando.lucha())
+	assert.equals(1,rolando.hechiceria())
 	}
 
 test "Rolando se encuentra el espejo fantastico y tiene la todos los artefactos"{
@@ -140,11 +140,8 @@ test "Rolando se encuentra el espejo fantastico y tiene la todos los artefactos"
 	rolando.obtenerUnArtefacto(collarDivino)
 	assert.equals(0, espejoFantastico.puntosDeHechiceria(rolando))
 	assert.equals(3, espejoFantastico.puntosDeLucha(rolando))
-	assert.equals(12,rolando.valorLucha())
-	assert.equals(3,rolando.valorHechiceria())
+	assert.equals(12,rolando.lucha())
+	assert.equals(3,rolando.hechiceria())
 	}
 
-}	
-
-
-		
+}		

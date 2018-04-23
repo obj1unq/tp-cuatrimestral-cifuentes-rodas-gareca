@@ -1,3 +1,6 @@
+import unCapo.*
+import artefactos.*
+
 object bandoDelSur{
 
 var property tesoro = 0
