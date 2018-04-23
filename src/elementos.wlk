@@ -23,7 +23,7 @@ object cumuloDeCarbon{
 	
 	/*Aumenta las reservas de carbon del bando del sur*/
 	method encontradoPor(capo){
-		bandoDelSur.aumentarReservasDeCarbon()
+		capo.bando().aumentarReservasDeCarbon()
 		}	
 } 
 
@@ -33,7 +33,7 @@ object cofresito{
 	
 	/*Aumenta las reservas de oro del bando del sur*/
 	method encontradoPor(capo){
-		bandoDelSur.aumentarTesoro()
+		capo.bando().aumentarTesoro()
 		}
 		
 }
