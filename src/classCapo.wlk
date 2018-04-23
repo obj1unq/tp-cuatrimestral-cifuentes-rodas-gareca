@@ -1,10 +1,10 @@
-object rolando {
-
-	
+class Capo{
 	var property luchaBase = 3
 	var property hechiceriaBase = 1
-	var artefactos = #{}
-
+	var property artefactos = #{}
+	var property bando =null
+	
+	
 	/*Incrementa el valor de lucha de rolando en 1 */
 	method incrementarValorBaseDeLucha() {
 		luchaBase++
@@ -44,5 +44,13 @@ object rolando {
 		_elemento.encontradoPor(self)
 	}
 
+	method seIntegraEnUnBando(_bando){
+		bando=_bando
+	}
+
 }
+
+
+
+
 
