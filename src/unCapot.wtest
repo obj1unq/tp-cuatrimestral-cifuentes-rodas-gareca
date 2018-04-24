@@ -1,62 +1,67 @@
 import artefactos.*
-import unCapo.*
+import classBandos.*
 import elementos.*
+import classCapo.*
 
 describe "rolando uncapo"{
+	var rolando = new Capo()
+	var bando1 = new Bando()
+	var cofresito1= new Cofresito()
+	var cofresito2= new Cofresito(cantidadDeOro = 150)
+	var cumulo1= new CumuloDeCarbon()	
 	
-	
-test "Se increentara  en 1 el valor de lucha de rolando. Valor inicial de lucha 3 valor final 4" {
+test "1_ Se increentara  en 1 el valor de lucha de rolando. Valor inicial de lucha 3 valor final 4" {
 		rolando.incrementarValorBaseDeLucha()
 		assert.equals(4,rolando.lucha())
 		}
 		
-test "Se increentara  en 1 el valor de hechiceria  de rolando. Valor inicial de hechiceria 1 valor final 2"{
+test "2_ Se increentara  en 1 el valor de hechiceria  de rolando. Valor inicial de hechiceria 1 valor final 2"{
 		rolando.incrementarValorBaseDeHechiceria()
 		assert.equals(2,rolando.hechiceria())
 		}
 		
-test "Agrega un artefacto a rolando"{
+test "3_ Agrega un artefacto a rolando"{
 		rolando.obtenerUnArtefacto(espadaDelDestino)
 		assert.equals(#{espadaDelDestino},rolando.artefactosReunidos())
 		}
 		
-test "Retorna el valor de lucha base inicial de rolando el cual es igual a 3"{
+test "4_ Retorna el valor de lucha base inicial de rolando el cual es igual a 3"{
 		assert.equals(rolando.lucha()==3)
 		}
 		
-test "Retorna el valor de hechiceria base inicial de rolando el cual es igual a 1"{
+test "5_ Retorna el valor de hechiceria base inicial de rolando el cual es igual a 1"{
 		assert.equals(rolando.hechiceria()==1)
 		}
 
-test "Retorna el valor de lucha que dan los artefactos reunidos"{
+test "6_ Retorna el valor de lucha que dan los artefactos reunidos"{
 		rolando.obtenerUnArtefacto(espadaDelDestino)
 		rolando.obtenerUnArtefacto(collarDivino)
 		rolando.obtenerUnArtefacto(libroDeHechizos)
 		assert.equals(4,rolando.valorLuchaArtefactos())
 		}
 		
-test "Retorna el valor de hechiceria  que dan los artefactos reunidos"{
+test "7_ Retorna el valor de hechiceria  que dan los artefactos reunidos"{
 		rolando.obtenerUnArtefacto(espadaDelDestino)
 		rolando.obtenerUnArtefacto(collarDivino)
 		rolando.obtenerUnArtefacto(libroDeHechizos)
 		assert.equals(2,rolando.valorHechiceriaArtefactos())
 		}
 		
-test "Retorna el valor de lucha compuesto por el valor base + el valor que otorga los artefactos reunidos"{
+test "8_ Retorna el valor de lucha compuesto por el valor base + el valor que otorga los artefactos reunidos"{
 		rolando.obtenerUnArtefacto(espadaDelDestino)
 		rolando.obtenerUnArtefacto(collarDivino)
 		rolando.obtenerUnArtefacto(libroDeHechizos)
 		assert.equals(7,rolando.lucha())
 		}
 		
-test "Retorna el valor de hechiceria compuesto por el valor base + el valor que otorga los artefactos reunidos"{
+test "9_ Retorna el valor de hechiceria compuesto por el valor base + el valor que otorga los artefactos reunidos"{
 		rolando.obtenerUnArtefacto(espadaDelDestino)
 		rolando.obtenerUnArtefacto(collarDivino)
 		rolando.obtenerUnArtefacto(libroDeHechizos)
 		assert.equals(3,rolando.hechiceria())
 		}
 		
-test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo ninguna
+test "10_ Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo ninguna
       ademas retorna el valor de lucha y hechiceria de rolando al encontrar la armadura"{
 		rolando.obtenerUnArtefacto(armadura)
 		assert.equals(2,armadura.puntosDeLucha(rolando))
@@ -65,7 +70,7 @@ test "Retorna el valor extra de lucha y hechiceria que da el armadura con un ref
 		assert.equals(5,rolando.lucha())
 		}
 		
-test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo cotaDeMalla
+test "11_ Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo cotaDeMalla
 	  ademas retorna el valor de lucha y hechiceria de rolando al encontrar la armadura"{
 		armadura.cambiarRefuerzo(cotaDeMalla)
 		rolando.obtenerUnArtefacto(armadura)
@@ -75,7 +80,7 @@ test "Retorna el valor extra de lucha y hechiceria que da el armadura con un ref
 		assert.equals(6,rolando.lucha())
 		}
 		
-test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo bendicion
+test "12_ Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo bendicion
 	  ademas retorna el valor de lucha y hechiceria de rolando al encontrar la armadura"{
 		armadura.cambiarRefuerzo(bendicion)
 		rolando.obtenerUnArtefacto(armadura)
@@ -85,7 +90,7 @@ test "Retorna el valor extra de lucha y hechiceria que da el armadura con un ref
 		assert.equals(5,rolando.lucha())
 		}
 		
-test "Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo hechizo, 
+test "13_ Retorna el valor extra de lucha y hechiceria que da el armadura con un refurzo hechizo, 
 	  ademas retorna el valor de lucha y hechiceria de rolando al encontrar la armadura "{
 		armadura.cambiarRefuerzo(hechizo)
 		rolando.obtenerUnArtefacto(armadura)
@@ -97,23 +102,25 @@ test "Retorna el valor extra de lucha y hechiceria que da el armadura con un ref
 		assert.equals(6,rolando.hechiceria())
 		assert.equals(5,rolando.lucha())
 		}
-test "Rolando se encuentra un cofre y las acumula en El Bando Del Sur en la cual pertenece"{
-	rolando.encontrarElemento(cofresito)	
+test "14_ Rolando se encuentra un cofre y las acumula en El Bando Del Sur en la cual pertenece"{
+	rolando.seIntegraAlBando(bando1)
+	rolando.encontrarElemento(cofresito1)	
 	assert.equals(100,rolando.bando().tesoro())
 	}
 
-test "Rolando se encuentra un cumulo de carbon y las acumula en El Bando del Sur en la cual pertenece"{
-	rolando.encontrarElemento(cumuloDeCarbon)
-	assert.equals(50,rolando.bando().reservasDeCarbon())	
+test "15_ Rolando se encuentra un cumulo de carbon y las acumula en El Bando del Sur en la cual pertenece"{
+	rolando.seIntegraAlBando(bando1)
+	rolando.encontrarElemento(cumulo1)
+	assert.equals(50,rolando.bando().recursos())	
 	}
 	
-test "Rolando se encuentra al viejo Sabio e incrementa en uno sus atributos"{
+test "16_ Rolando se encuentra al viejo Sabio e incrementa en uno sus atributos"{
 	rolando.encontrarElemento(viejoSabio)
 	assert.equals(4,rolando.lucha())
 	assert.equals(2,rolando.hechiceria())
 	}
 
-test "Rolando se encuentra el espejo fantastico pero no tiene mas artefactos"{
+test "17_ Rolando se encuentra el espejo fantastico pero no tiene mas artefactos"{
 	rolando.obtenerUnArtefacto(espejoFantastico)
 	assert.equals(0, espejoFantastico.puntosDeHechiceria(rolando))
 	assert.equals(0, espejoFantastico.puntosDeLucha(rolando))
@@ -121,7 +128,7 @@ test "Rolando se encuentra el espejo fantastico pero no tiene mas artefactos"{
 	assert.equals(1,rolando.hechiceria())
 	}
 	
-test "Rolando se encuentra el espejo fantastico y tiene la armadura"{
+test "18_ Rolando se encuentra el espejo fantastico y tiene la armadura"{
 	rolando.obtenerUnArtefacto(espejoFantastico)
 	rolando.obtenerUnArtefacto(armadura)
 	assert.equals(0,armadura.puntosDeHechiceria(rolando))
@@ -132,7 +139,7 @@ test "Rolando se encuentra el espejo fantastico y tiene la armadura"{
 	assert.equals(1,rolando.hechiceria())
 	}
 
-test "Rolando se encuentra el espejo fantastico y tiene la todos los artefactos"{
+test "19_ Rolando se encuentra el espejo fantastico y tiene la todos los artefactos"{
 	rolando.obtenerUnArtefacto(espadaDelDestino)
 	rolando.obtenerUnArtefacto(libroDeHechizos)
 	rolando.obtenerUnArtefacto(espejoFantastico)
@@ -143,5 +150,13 @@ test "Rolando se encuentra el espejo fantastico y tiene la todos los artefactos"
 	assert.equals(12,rolando.lucha())
 	assert.equals(3,rolando.hechiceria())
 	}
-
+	
+test "20_ Rolando se encuentra con un cumulo de carbon y dos cofres, uno de 100 y otro de 150"{
+	rolando.seIntegraAlBando(bando1)
+	rolando.encontrarElemento(cumulo1)
+	rolando.encontrarElemento(cofresito1)
+	rolando.encontrarElemento(cofresito2)
+	assert.equals(50,rolando.bando().recursos())
+	assert.equals(250,rolando.bando().tesoro())	
+	}
 }		
