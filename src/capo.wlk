@@ -1,7 +1,7 @@
 import artefactos.*
 
 class Capo {
-
+	var property estaVivo= true
 	var property luchaBase = 3
 	var property hechiceriaBase = 1
 	var property artefactos = #{}
@@ -42,7 +42,7 @@ class Capo {
 	/*Retorna el artefacto cuya suma de puntos (hechiceria y lucha) es la mas alta del conjunto de artefactos */
 	method elMejorArtefacto(exceptuado) = if (artefactos.size() > 1) artefactos.filter({ artefacto => artefacto != exceptuado }).max({ artefacto => artefacto.totalPuntosAgrega(self) }) else return artefactoNeutro
 
-	/*Encuentra un elemento del bando del sur*/
+	/*un capo se encuentra con cualquier cosa */
 	method encontrarElemento(_elemento) {
 		_elemento.encontradoPor(self)
 	}
@@ -51,5 +51,25 @@ class Capo {
 		bando = _bando
 	}
 
-}
+	method encontradoPor(_capo){
+		if(self.esDelMismoBando(_capo))self.regalarArtefactos(_capo)else self.fight(_capo)
+	}
+
+
+	method regalarArtefactos(_capo){
+		_capo.resivirArtefactos(self.artefactos())
+	}
+
+	method resivirArtefactos(_artefactos){
+		artefactos.addAll(_artefactos)
+	}
+
+
+	method sumaDeAtributos(_capo)= _capo.lucha()+_capo.hechiceria()
+
+	method esDelMismoBando(_capo)= self
+
+
+
+
 
