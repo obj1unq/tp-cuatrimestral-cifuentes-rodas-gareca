@@ -1,7 +1,9 @@
 import artefactos.*
-import classBandos.*
-import elementos.*
-import classCapo.*
+import bando.*
+import cofresito.*
+import capo.*
+import cumuloDeCarbon.*
+import viejoSabio.*
 
 describe "rolando uncapo"{
 	var rolando = new Capo()
