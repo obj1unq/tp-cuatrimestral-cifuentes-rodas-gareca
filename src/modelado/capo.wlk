@@ -6,7 +6,7 @@ class Capo {
 	var property hechiceriaBase = 1
 	var property artefactos = #{}
 	var property bando = null
-
+	var property nombre = null
 	/*Incrementa el valor de lucha de un capo en 1 si esta vivo */
 	method incrementarValorBaseDeLucha() {
 		if(self.estaVivo())luchaBase++ else throw new Exception("esta muerto") 
@@ -79,6 +79,8 @@ class Capo {
 	
 	// Cambia el estado de un capo de vivo a muerto
 	method muerte(){estaVivo= false}
+	
+	method imagen()= "capo-"+ self.nombre()+".png"
 	
 }
 

@@ -1,0 +1,19 @@
+import modelado.artefactos.*
+import modelado.bando.*
+import modelado.cofresito.*
+import modelado.capo.*
+import modelado.cumuloDeCarbon.*
+import modelado.viejoSabio.*
+import wollok.game.*
+
+program rolandoGame {
+
+	var capo1 = new Capo(nombre= "Rolando")
+	game.title("Rolando")
+	game.height(10)
+	game.width(10)
+	game.ground("fondoBase.png")
+	game.addVisualCharacterIn(capo1, game.center())
+
+	game.start()
+}

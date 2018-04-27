@@ -1,9 +1,9 @@
-import artefactos.*
-import bando.*
-import cofresito.*
-import capo.*
-import cumuloDeCarbon.*
-import viejoSabio.*
+import modelado.artefactos.*
+import modelado.bando.*
+import modelado.cofresito.*
+import modelado.capo.*
+import modelado.cumuloDeCarbon.*
+import modelado.viejoSabio.*
 
 describe "rolando uncapo"{
 	var rolando = new Capo()
