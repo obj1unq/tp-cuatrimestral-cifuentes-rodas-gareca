@@ -7,17 +7,17 @@ class Capo {
 	var property artefactos = #{}
 	var property bando = null
 
-	/*Incrementa el valor de lucha de rolando en 1 */
+	/*Incrementa el valor de lucha de un capo en 1 si esta vivo */
 	method incrementarValorBaseDeLucha() {
 		if(self.estaVivo())luchaBase++ else throw new Exception("esta muerto") 
 	}
 
-	/*Incrementa el valor de hechiceria  de rolando en 1 */
+	/*Incrementa el valor de hechiceria  de un capo en 1 si esta vivo */
 	method incrementarValorBaseDeHechiceria() {
 		if(self.estaVivo())hechiceriaBase++else throw new Exception("esta muerto") 
 	}
 
-	/*Agrega un artefacto a la bolsa de rolando */
+	/*Agrega un artefacto a la bolsa de un capo si esta vivo */
 	method obtenerUnArtefacto(_artefacto) {
 		if(self.estaVivo())artefactos.add(_artefacto)else throw new Exception("esta muerto") 
 	}
@@ -42,12 +42,12 @@ class Capo {
 	/*Retorna el artefacto cuya suma de puntos (hechiceria y lucha) es la mas alta del conjunto de artefactos */
 	method elMejorArtefacto(exceptuado) = if (artefactos.size() > 1) artefactos.filter({ artefacto => artefacto != exceptuado }).max({ artefacto => artefacto.totalPuntosAgrega(self) }) else return artefactoNeutro
 
-	/*un capo se encuentra con cualquier cosa */
+	/*un capo se encuentra con cualquier cosa si esta vivo*/
 	method encontrarElemento(_elemento) {
 		if(self.estaVivo())_elemento.encontradoPor(self) else throw new Exception("esta muerto") 
 	}
 	
-	// un capo puede formar parte de un bando
+	// un capo puede formar parte de un bando si esta vivo
 	method seIntegraAlBando(_bando) {
 		if(self.estaVivo())bando = _bando else throw new Exception("esta muerto") 
 	}
