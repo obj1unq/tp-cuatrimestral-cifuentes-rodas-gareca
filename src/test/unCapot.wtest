@@ -116,11 +116,11 @@ test "15_ Rolando se encuentra un cumulo de carbon y las acumula en El Bando del
 	assert.equals(50,rolando.bando().recursos())	
 	}
 	
-test "16_ Rolando se encuentra al viejo Sabio e incrementa en uno sus atributos"{
+/*test "16_ Rolando se encuentra al viejo Sabio e incrementa en uno sus atributos"{
 	rolando.encontrarElemento(viejoSabio)
 	assert.equals(4,rolando.lucha())
 	assert.equals(2,rolando.hechiceria())
-	}
+	}*/
 
 test "17_ Rolando se encuentra el espejo fantastico pero no tiene mas artefactos"{
 	rolando.obtenerUnArtefacto(espejoFantastico)

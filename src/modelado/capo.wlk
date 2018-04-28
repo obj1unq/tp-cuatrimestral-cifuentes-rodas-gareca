@@ -11,6 +11,10 @@ class Capo {
 	method incrementarValorBaseDeLucha() {
 		if(self.estaVivo())luchaBase++ else throw new Exception("esta muerto") 
 	}
+	/*Este methodo suma a la luchaBase de capo el numero que se le pasa por parametro*/
+	method incrementarValorBaseDeLucha(unNum){
+		luchaBase+=unNum
+	}
 
 	/*Incrementa el valor de hechiceria  de un capo en 1 si esta vivo */
 	method incrementarValorBaseDeHechiceria() {
