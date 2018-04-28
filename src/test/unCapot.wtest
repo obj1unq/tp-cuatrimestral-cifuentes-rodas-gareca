@@ -1,7 +1,9 @@
-import artefactos.*
-import classBandos.*
-import elementos.*
-import classCapo.*
+import modelado.artefactos.*
+import modelado.bando.*
+import modelado.cofresito.*
+import modelado.capo.*
+import modelado.cumuloDeCarbon.*
+import modelado.viejoSabio.*
 
 describe "rolando uncapo"{
 	var rolando = new Capo()
@@ -20,7 +22,7 @@ test "2_ Se increentara  en 1 el valor de hechiceria  de rolando. Valor inicial 
 		assert.equals(2,rolando.hechiceria())
 		}
 		
-test "3_ Agrega un artefacto a rolando"{
+test "3_ Agrega un artefacto a rolando "{
 		rolando.obtenerUnArtefacto(espadaDelDestino)
 		assert.equals(#{espadaDelDestino},rolando.artefactosReunidos())
 		}
