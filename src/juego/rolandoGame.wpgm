@@ -8,8 +8,8 @@ import wollok.game.*
 
 program rolandoGame {
 	var capo1 = new Capo(nombre = "Rolando")
-	var san = new ViejoSabio(imagen = "oldManSan")
-	var rufus = new ViejoSabio(imagen = "oldManRufus")
+	var san = new ViejoSabio(imagen = "oldManSan", nombre = "San")
+	var rufus = new ViejoSabio(imagen = "oldManRufus",nombre = "Rufus")
 //	CONFIG	
 	game.title("Rolando")
 	game.height(12)
