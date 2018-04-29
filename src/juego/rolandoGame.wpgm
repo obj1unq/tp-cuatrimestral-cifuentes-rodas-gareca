@@ -12,7 +12,7 @@ program rolandoGame {
 	var san = new ViejoSabio(imagen = "oldManSan.png", nombre = "San")
 	var rufus = new ViejoSabio(imagen = "oldManSan.png", nombre = "Rufus")
 	var armadura = new Armadura(nombre = "Armadura sin Refuerzo")
-	var armaduraProtegida =new Armadura(refuerzo = bendicion,nombre = "Armadura bendecida")
+	var armaduraProtegida = new Armadura(refuerzo = bendicion, nombre = "Armadura bendecida")
 //	CONFIG	
 	game.title("Rolando")
 	game.height(15)

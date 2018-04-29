@@ -11,7 +11,8 @@ class ViejoSabio {
 		capo.incrementarValorBaseDeLucha(ayudanteDeSabio.puntosLuchaAdicional())
 		game.removeVisual(self)
 	}
-/*Genera una posicion al azr para la instancia del viejo sabio*/
+
+	/*Genera una posicion al azr para la instancia del viejo sabio*/
 	method posicionRamdon() {
 		var x = 1.randomUpTo(12)
 		var y = 1.randomUpTo(12)

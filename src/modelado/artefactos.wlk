@@ -1,7 +1,7 @@
 object espadaDelDestino {
 
 	const imagen = "EspadaDelDestino.png"
-	const posicion =posicionRamdon.posicionRamdon()
+	const posicion = posicionRamdon.posicionRamdon()
 	const nombre = "Espada Del Destino"
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
@@ -30,7 +30,7 @@ object espadaDelDestino {
 object libroDeHechizos {
 
 	const imagen = "LibroDeHechizos.png"
-	const posicion =posicionRamdon.posicionRamdon()
+	const posicion = posicionRamdon.posicionRamdon()
 	const nombre = "Libro De Hechizos"
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
@@ -101,7 +101,8 @@ object espejoFantastico {
 
 //-----------------------------------------------------------------------------------------------------------
 object artefactoNeutro {
-/*Objeto utilizado como artefacto neutro para el method elMejor*/
+
+	/*Objeto utilizado como artefacto neutro para el method elMejor*/
 	method puntosDeLucha(capo) = 0
 
 	method puntosDeHechiceria(capo) = 0
@@ -109,7 +110,6 @@ object artefactoNeutro {
 	method totalPuntosAgrega(capo) = self.puntosDeHechiceria(capo) + self.puntosDeLucha(capo)
 
 }
-
 
 //-------------------------------------------------------------------------------------------------------------------------
 object posicionRamdon {
