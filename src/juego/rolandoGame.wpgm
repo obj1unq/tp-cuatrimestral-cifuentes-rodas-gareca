@@ -4,21 +4,30 @@ import modelado.cofresito.*
 import modelado.capo.*
 import modelado.cumuloDeCarbon.*
 import modelado.viejoSabio.*
+import modelado.armadura.*
 import wollok.game.*
 
 program rolandoGame {
 	var capo1 = new Capo(nombre = "Rolando")
-	var san = new ViejoSabio(imagen = "oldManSan", nombre = "San")
-	var rufus = new ViejoSabio(imagen = "oldManRufus",nombre = "Rufus")
+	var san = new ViejoSabio(imagen = "oldManSan.png", nombre = "San")
+	var rufus = new ViejoSabio(imagen = "oldManSan.png", nombre = "Rufus")
+	var armadura = new Armadura(nombre = "Armadura sin Refuerzo")
+	var armaduraProtegida =new Armadura(refuerzo = bendicion,nombre = "Armadura bendecida")
 //	CONFIG	
 	game.title("Rolando")
-	game.height(12)
-	game.width(12)
+	game.height(15)
+	game.width(15)
 	game.ground("fondoBase.png")
 // Visual
 	game.addVisualCharacterIn(capo1, game.center())
 	game.addVisual(san)
 	game.addVisual(rufus)
+	game.addVisual(armadura)
+	game.addVisual(armaduraProtegida)
+	game.addVisual(espadaDelDestino)
+	game.addVisual(libroDeHechizos)
+	game.addVisual(collarDivino)
+	game.addVisual(espejoFantastico)
 	game.whenCollideDo(capo1, { algo => algo.encontradoPor(capo1) })
 //	START
 	game.start()

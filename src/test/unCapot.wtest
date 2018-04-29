@@ -2,6 +2,7 @@ import modelado.artefactos.*
 import modelado.bando.*
 import modelado.cofresito.*
 import modelado.capo.*
+import modelado.armadura.*
 import modelado.cumuloDeCarbon.*
 import modelado.viejoSabio.*
 
@@ -10,7 +11,8 @@ describe "rolando uncapo"{
 	var bando1 = new Bando()
 	var cofresito1= new Cofresito()
 	var cofresito2= new Cofresito(cantidadDeOro = 150)
-	var cumulo1= new CumuloDeCarbon()	
+	var cumulo1= new CumuloDeCarbon()
+	var armadura = new Armadura()	
 	
 test "1_ Se increentara  en 1 el valor de lucha de rolando. Valor inicial de lucha 3 valor final 4" {
 		rolando.incrementarValorBaseDeLucha()

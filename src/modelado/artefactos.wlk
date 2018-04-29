@@ -1,5 +1,15 @@
 object espadaDelDestino {
 
+	const imagen = "EspadaDelDestino.png"
+	const posicion =posicionRamdon.posicionRamdon()
+	const nombre = "Espada Del Destino"
+
+	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
+	method encontradoPor(capo) {
+		capo.obtenerUnArtefacto(self)
+		game.removeVisual(self)
+	}
+
 	/*Retorna los puntos de lucha que da este artefacto*/
 	method puntosDeLucha(capo) {
 		return 3
@@ -16,18 +26,18 @@ object espadaDelDestino {
 
 }
 
-object artefactoNeutro {
-
-	method puntosDeLucha(capo) = 0
-
-	method puntosDeHechiceria(capo) = 0
-
-	method totalPuntosAgrega(capo) = self.puntosDeHechiceria(capo) + self.puntosDeLucha(capo)
-
-}
-
-//----------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------
 object libroDeHechizos {
+
+	const imagen = "LibroDeHechizos.png"
+	const posicion =posicionRamdon.posicionRamdon()
+	const nombre = "Libro De Hechizos"
+
+	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
+	method encontradoPor(capo) {
+		capo.obtenerUnArtefacto(self)
+		game.removeVisual(self)
+	}
 
 	/*Retorna los puntos de lucha que da este artefacto*/
 	method puntosDeHechiceria(capo) = capo.hechiceriaBase()
@@ -40,8 +50,18 @@ object libroDeHechizos {
 
 }
 
-//-----------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------
 object collarDivino {
+
+	const imagen = "CollarDivino.png"
+	const posicion = posicionRamdon.posicionRamdon()
+	const nombre = "Collar divino"
+
+	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
+	method encontradoPor(capo) {
+		capo.obtenerUnArtefacto(self)
+		game.removeVisual(self)
+	}
 
 	/*Retorna los puntos de lucha que da este artefacto*/
 	method puntosDeLucha(capo) = 1
@@ -54,75 +74,18 @@ object collarDivino {
 
 }
 
-// ---------------------------------------------------------------------------------------------------------------
-object armadura {
-
-	var refuerzo = ninguna
-
-	/*Cambia el refuerzo de la armadura, este metodo se hace solo para realizar los tests*/
-	method cambiarRefuerzo(_refuerzo) {
-		refuerzo = _refuerzo
-	}
-
-	/*Retorna los puntos de lucha que da este artefacto*/
-	method puntosDeLucha(capo) = 2 + refuerzo.puntosLuchaExtra(capo)
-
-	/*Retorna los puntos de hechiceria que da este artefacto*/
-	method puntosDeHechiceria(capo) = refuerzo.puntosHechiceriaExtra(capo)
-
-	/*Retorna la suma de puntos  de hechiceria y lucha que da este artefacto*/
-	method totalPuntosAgrega(capo) = self.puntosDeHechiceria(capo) + self.puntosDeLucha(capo)
-
-}
-
-// -------------------------------------------------------------------------------------------------------------
-object cotaDeMalla {
-
-	/*agrega puntos extra de lucha a la armadura*/
-	method puntosLuchaExtra(capo) = 1
-
-	/*Agrega puntos extra a la armadura*/
-	method puntosHechiceriaExtra(capo) = 0
-
-}
-
-// -------------------------------------------------------------------------------------------------------------
-object bendicion {
-
-	/*agrega puntos extra de lucha a la armadura*/
-	method puntosLuchaExtra(capo) = 0
-
-	/*Agrega puntos extra a la armadura*/
-	method puntosHechiceriaExtra(capo) = 1
-
-}
-
-// -------------------------------------------------------------------------------------------------------------
-object hechizo {
-
-	/*agrega puntos extra de lucha a la armadura*/
-	method puntosLuchaExtra(capo) = 0
-
-	/*Agrega puntos extra a la armadura*/
-	method puntosHechiceriaExtra(capo) {
-		return if (capo.hechiceriaBase() > 3) 2 else 0
-	}
-
-}
-
-// -------------------------------------------------------------------------------------------------------------
-object ninguna {
-
-	/*agrega puntos extra de lucha a la armadura*/
-	method puntosLuchaExtra(capo) = 0
-
-	/*Agrega puntos extra a la armadura*/
-	method puntosHechiceriaExtra(capo) = 0
-
-}
-
 // --------------------------------------------------------------------------------------------------------------
 object espejoFantastico {
+
+	const imagen = "EspejoFantastico.png"
+	const posicion = posicionRamdon.posicionRamdon()
+	const nombre = "Espejo Fantastico"
+
+	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
+	method encontradoPor(capo) {
+		capo.obtenerUnArtefacto(self)
+		game.removeVisual(self)
+	}
 
 	/*Retorna los puntos de lucha que da este artefacto*/
 	method puntosDeLucha(capo) {
@@ -133,6 +96,32 @@ object espejoFantastico {
 	method puntosDeHechiceria(capo) {
 		return capo.elMejorArtefacto(self).puntosDeHechiceria(capo)
 	}
+
+}
+
+//-----------------------------------------------------------------------------------------------------------
+object artefactoNeutro {
+/*Objeto utilizado como artefacto neutro para el method elMejor*/
+	method puntosDeLucha(capo) = 0
+
+	method puntosDeHechiceria(capo) = 0
+
+	method totalPuntosAgrega(capo) = self.puntosDeHechiceria(capo) + self.puntosDeLucha(capo)
+
+}
+
+
+//-------------------------------------------------------------------------------------------------------------------------
+object posicionRamdon {
+
+	/*Genera una posicion al azr para la armadura*/
+	method posicionRamdon() {
+		var x = 1.randomUpTo(15)
+		var y = 1.randomUpTo(15)
+		return game.at(x, y)
+	}
+
+}
 
 // CORRECCION: Esta manera de usar excepciones es medio peligrosa, porque el si el problema es que no tiene artefactos anda todo bien, pero también podría pasar
 // CORRECCION: que haya otro problema (un artefacto que anda mal por ejemplo) y te estás comiendo el problema.
@@ -146,5 +135,3 @@ object espejoFantastico {
 // CORRECCION:	}
 // CORRECCION:}
 // CORRECCION: Hay muchas otras alternativas sin necesidad de caer en el catch
-}
-
