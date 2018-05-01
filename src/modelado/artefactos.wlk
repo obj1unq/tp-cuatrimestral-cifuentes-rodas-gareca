@@ -1,5 +1,7 @@
 object espadaDelDestino {
 
+	const nombre = "Espada del destino"
+
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
 		capo.obtenerUnArtefacto(self)
@@ -30,6 +32,8 @@ object espadaDelDestino {
 //--------------------------------------------------------------------------------------------------------------------------
 object libroDeHechizos {
 
+	const nombre = "Libro de hechizos"
+
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
 		capo.obtenerUnArtefacto(self)
@@ -55,6 +59,8 @@ object libroDeHechizos {
 //----------------------------------------------------------------------------------------------------------
 object collarDivino {
 
+	const nombre = "Collar divino"
+
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
 		capo.obtenerUnArtefacto(self)
@@ -79,6 +85,8 @@ object collarDivino {
 
 // --------------------------------------------------------------------------------------------------------------
 object espejoFantastico {
+
+	const nombre = "Espejo fantastico"
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
@@ -118,7 +126,7 @@ object artefactoNeutro {
 //-------------------------------------------------------------------------------------------------------------------------
 object posicionRandom {
 
-	/*Genera una posicion al azr para la armadura*/
+	/*Genera una posicion al azar para la armadura, artefactos y viejo sabio*/
 	method posicionRandom() {
 		return game.at(1.randomUpTo(17), 1.randomUpTo(17))
 	}
