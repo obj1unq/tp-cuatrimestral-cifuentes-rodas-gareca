@@ -1,9 +1,5 @@
 object espadaDelDestino {
 
-	const imagen = "EspadaDelDestino.png"
-	const posicion = posicionRamdon.posicionRamdon()
-	const nombre = "Espada Del Destino"
-
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
 		capo.obtenerUnArtefacto(self)
@@ -20,6 +16,11 @@ object espadaDelDestino {
 		return 0
 	}
 
+	/*Retorna la imagen de la espada del destino*/
+	method imagen() {
+		return "espada.png"
+	}
+
 	// CORRECCION: para la próxima entrega ya tienen herramientas para no tener que duplicar este método en todos los artefactos, cámbienlo.
 	/*Retorna la suma de puntos  de hechiceria y lucha que da este artefacto*/
 	method totalPuntosAgrega(capo) = self.puntosDeHechiceria(capo) + self.puntosDeLucha(capo)
@@ -28,10 +29,6 @@ object espadaDelDestino {
 
 //--------------------------------------------------------------------------------------------------------------------------
 object libroDeHechizos {
-
-	const imagen = "LibroDeHechizos.png"
-	const posicion = posicionRamdon.posicionRamdon()
-	const nombre = "Libro De Hechizos"
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
@@ -48,19 +45,25 @@ object libroDeHechizos {
 	/*Retorna la suma de puntos  de hechiceria y lucha que da este artefacto*/
 	method totalPuntosAgrega(capo) = self.puntosDeHechiceria(capo) + self.puntosDeLucha(capo)
 
+	/*Retorna la imagen de la espada del destino*/
+	method imagen() {
+		return "LibroDeHechizos.png"
+	}
+
 }
 
 //----------------------------------------------------------------------------------------------------------
 object collarDivino {
 
-	const imagen = "CollarDivino.png"
-	const posicion = posicionRamdon.posicionRamdon()
-	const nombre = "Collar divino"
-
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
 		capo.obtenerUnArtefacto(self)
 		game.removeVisual(self)
+	}
+
+	/*Retorna la imagen de la espada del destino*/
+	method imagen() {
+		return "collar.png"
 	}
 
 	/*Retorna los puntos de lucha que da este artefacto*/
@@ -77,14 +80,15 @@ object collarDivino {
 // --------------------------------------------------------------------------------------------------------------
 object espejoFantastico {
 
-	const imagen = "EspejoFantastico.png"
-	const posicion = posicionRamdon.posicionRamdon()
-	const nombre = "Espejo Fantastico"
-
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
 		capo.obtenerUnArtefacto(self)
 		game.removeVisual(self)
+	}
+
+	/*Retorna la imagen de la espada del destino*/
+	method imagen() {
+		return "EspejoFantastico.png"
 	}
 
 	/*Retorna los puntos de lucha que da este artefacto*/
@@ -112,13 +116,11 @@ object artefactoNeutro {
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
-object posicionRamdon {
+object posicionRandom {
 
 	/*Genera una posicion al azr para la armadura*/
-	method posicionRamdon() {
-		var x = 1.randomUpTo(15)
-		var y = 1.randomUpTo(15)
-		return game.at(x, y)
+	method posicionRandom() {
+		return game.at(1.randomUpTo(17), 1.randomUpTo(17))
 	}
 
 }

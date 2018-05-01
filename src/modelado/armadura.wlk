@@ -1,10 +1,9 @@
 // ---------------------------------------------------------------------------------------------------------------
+import modelado.artefactos.*
+
 class Armadura {
 
 	var refuerzo = ninguna
-	const imagen = "Armadura.png"
-	const posicion = self.posicionRamdon()
-	const nombre = ""
 
 	/*Cambia el refuerzo de la armadura, este metodo se hace solo para realizar los tests*/
 	method cambiarRefuerzo(_refuerzo) {
@@ -17,10 +16,9 @@ class Armadura {
 		game.removeVisual(self)
 	}
 
-	method posicionRamdon() {
-		var x = 1.randomUpTo(15)
-		var y = 1.randomUpTo(15)
-		return game.at(x, y)
+	/*Imagen de la armadura*/
+	method imagen() {
+		return "Armadura.png"
 	}
 
 	/*Retorna los puntos de lucha que da este artefacto*/
