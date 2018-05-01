@@ -21,12 +21,18 @@ class Capo {
 	/*Este methodo suma a la luchaBase de capo el numero que se le pasa por parametro
 	 * Este metodo es usado por el viejo sabio*/
 	method incrementarValorBaseDeLucha(unNum) {
-		luchaBase += unNum
+		if (self.estaVivo()) {
+			luchaBase += unNum
+		} else {
+			throw new Exception("esta muerto")
+		}
+		
+		
 	}
 
 	/*Incrementa el valor de hechiceria  de un capo en 1 si esta vivo */
 	method incrementarValorBaseDeHechiceria() {
-		if (estaVivo) {
+		if (self.estaVivo()) {
 			hechiceriaBase++
 		} else {
 			throw new Exception("esta muerto")
@@ -35,7 +41,7 @@ class Capo {
 
 	/*Agrega un artefacto a la bolsa de un capo si esta vivo */
 	method obtenerUnArtefacto(_artefacto) {
-		if (estaVivo) {
+		if (self.estaVivo()) {
 			artefactos.add(_artefacto)
 		} else {
 			throw new Exception("esta muerto")
@@ -71,7 +77,7 @@ class Capo {
 
 	/*un capo se encuentra con cualquier cosa si esta vivo*/
 	method encontrarElemento(_elemento) {
-		if (estaVivo) {
+		if (self.estaVivo()) {
 			_elemento.encontradoPor(self)
 		} else {
 			throw new Exception("esta muerto")
@@ -80,7 +86,7 @@ class Capo {
 
 	// un capo puede formar parte de un bando si esta vivo
 	method seIntegraAlBando(_bando) {
-		if (estaVivo) {
+		if (self.estaVivo()) {
 			bando = _bando
 		} else {
 			throw new Exception("esta muerto")
@@ -98,7 +104,7 @@ class Capo {
 
 	// Da su equipamiento a otro capo
 	method regalarArtefactos(_capo) {
-		if (estaVivo) {
+		if (self.estaVivo()) {
 			_capo.resivirArtefactos(self.artefactos())
 		} else {
 			throw new Exception("esta muerto")
@@ -107,7 +113,7 @@ class Capo {
 
 	// Un capo puede resivir los artefactos de otro capo
 	method resivirArtefactos(_artefactos) {
-		if (estaVivo) {
+		if (self.estaVivo()) {
 			artefactos.caddAll(_artefactos)
 		} else {
 			throw new Exception("esta muerto")

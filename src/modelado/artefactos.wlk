@@ -1,6 +1,6 @@
 object espadaDelDestino {
 
-	const nombre = "Espada del destino"
+	const property nombre = "Espada del destino"
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
@@ -32,7 +32,7 @@ object espadaDelDestino {
 //--------------------------------------------------------------------------------------------------------------------------
 object libroDeHechizos {
 
-	const nombre = "Libro de hechizos"
+	const property nombre = "Libro de hechizos"
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
@@ -59,7 +59,7 @@ object libroDeHechizos {
 //----------------------------------------------------------------------------------------------------------
 object collarDivino {
 
-	const nombre = "Collar divino"
+	const property nombre = "Collar divino"
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
@@ -86,7 +86,7 @@ object collarDivino {
 // --------------------------------------------------------------------------------------------------------------
 object espejoFantastico {
 
-	const nombre = "Espejo fantastico"
+	const property nombre = "Espejo fantastico"
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	method encontradoPor(capo) {
