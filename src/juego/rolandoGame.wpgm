@@ -8,7 +8,9 @@ import modelado.armadura.*
 import wollok.game.*
 
 program rolandoGame {
-	var capo1 = new Capo(nombre = "Rolando")
+	var rolando = new Capo(nombre = "Rolando")
+	var caterina = new Capo(nombre = "Caterina")
+	var archivaldo = new Capo(nombre = "Archivaldo")
 	var persi = new ViejoSabio(nombre = "Perci")
 	var san = new ViejoSabio(nombre = "San")
 	var armadura = new Armadura()
@@ -19,7 +21,9 @@ program rolandoGame {
 	game.width(18)
 	game.boardGround("fondo.png")
 // Visual
-	game.addVisualCharacterIn(capo1, game.center())
+	game.addVisualCharacterIn(rolando, game.center())
+	game.addVisualIn(caterina, posicionRandom.posicionRandom())
+	game.addVisualIn(archivaldo, posicionRandom.posicionRandom())
 	game.addVisualIn(san, posicionRandom.posicionRandom())
 	game.addVisualIn(persi, posicionRandom.posicionRandom())
 	game.addVisualIn(armadura, posicionRandom.posicionRandom())
@@ -28,7 +32,7 @@ program rolandoGame {
 	game.addVisualIn(libroDeHechizos, posicionRandom.posicionRandom())
 	game.addVisualIn(collarDivino, posicionRandom.posicionRandom())
 	game.addVisualIn(espejoFantastico, posicionRandom.posicionRandom())
-	game.whenCollideDo(capo1, { algo => algo.encontradoPor(capo1) })
+	game.whenCollideDo(rolando, { algo => algo.encontradoPor(rolando) })
 //	START
 	game.start()
 }

@@ -7,7 +7,7 @@ class Bando {
 	/*Agrega un capo al bando */
 	method agregarCapo(_capo) {
 		miembros.add(_capo)
-		_capo.seIntegraEnUnBando(self)
+		_capo.seIntegraA(self)
 	}
 
 	/*Aumenta el valor del tesoro*/

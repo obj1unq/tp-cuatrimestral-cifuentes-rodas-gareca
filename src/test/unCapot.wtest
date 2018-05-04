@@ -109,13 +109,13 @@ describe "rolando uncapo" {
 	}
 
 	test "14_ Rolando se encuentra un cofre y las acumula en El Bando Del Sur en la cual pertenece" {
-		rolando.seIntegraAlBando(bando1)
+		bando1.agregarCapo(rolando)
 		rolando.encontrarElemento(cofresito1)
 		assert.equals(100, rolando.bando().tesoro())
 	}
 
 	test "15_ Rolando se encuentra un cumulo de carbon y las acumula en El Bando del Sur en la cual pertenece" {
-		rolando.seIntegraAlBando(bando1)
+		bando1.agregarCapo(rolando)
 		rolando.encontrarElemento(cumulo1)
 		assert.equals(50, rolando.bando().recursos())
 	}
@@ -157,7 +157,7 @@ describe "rolando uncapo" {
 	}
 
 	test "20_ Rolando se encuentra con un cumulo de carbon y dos cofres, uno de 100 y otro de 150" {
-		rolando.seIntegraAlBando(bando1)
+		bando1.agregarCapo(rolando)
 		rolando.encontrarElemento(cumulo1)
 		rolando.encontrarElemento(cofresito1)
 		rolando.encontrarElemento(cofresito2)
