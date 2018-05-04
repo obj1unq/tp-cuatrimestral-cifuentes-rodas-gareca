@@ -21,22 +21,23 @@ class Capo {
 	/*Este methodo suma a la luchaBase de capo el numero que se le pasa por parametro
 	 * Este metodo es usado por el viejo sabio*/
 	method incrementarValorBaseDeLucha(unNum) {
-		if (estaVivo) luchaBase += unNum else throw new Exception("esta muerto")	
+		if (estaVivo) luchaBase += unNum else throw new Exception("esta muerto")
 	}
 
 	/*Incrementa el valor de hechiceria  de un capo en 1 si esta vivo */
 	method incrementarValorBaseDeHechiceria() {
 		if (estaVivo) hechiceriaBase++ else throw new Exception("esta muerto")
-		
 	}
 
 	/*Agrega un artefacto a la bolsa de un capo si esta vivo */
 	method obtenerUnArtefacto(_artefacto) {
-		if (estaVivo)artefactos.add(_artefacto)else throw new Exception("esta muerto")
+		if (estaVivo) artefactos.add(_artefacto) else throw new Exception("esta muerto")
 	}
 
 	/*Retorna todos los artefactos reunidos por rolando*/
-	method artefactosReunidos() = artefactos
+	method artefactosReunidos() {
+		return self.artefactos()
+	}
 
 	/*Retorna la sumatoria de valor de lucha que otorga los artefactos */
 	method valorLuchaArtefactos() = artefactos.sum({ artefacto => artefacto.puntosDeLucha(self) })
@@ -46,11 +47,15 @@ class Capo {
 
 	/*Retorna el valor total de lucha  de rolando  el cual esta compuesto por el 
 	 * valor base y el valor que le da los artefactos equipados*/
-	method lucha() = luchaBase + self.valorLuchaArtefactos()
+	method lucha() {
+		return self.luchaBase() + self.valorLuchaArtefactos()
+	}
 
 	/*Retorna el valor total de hechiceria  de rolando  el cual esta compuesto por el 
 	 * valor base y el valor que le da los artefactos equipados*/
-	method hechiceria() = hechiceriaBase + self.valorHechiceriaArtefactos()
+	method hechiceria() {
+		return self.hechiceriaBase() + self.valorHechiceriaArtefactos()
+	}
 
 	/*Retorna el artefacto cuya suma de puntos (hechiceria y lucha) es la mas alta del conjunto de artefactos, 
 	 * no evalua al artefacto exceptuado */
@@ -64,51 +69,62 @@ class Capo {
 
 	/*un capo se encuentra con cualquier cosa si esta vivo*/
 	method encontrarElemento(_elemento) {
-
-		if(estaVivo)_elemento.encontradoPor(self) else throw new Exception("esta muerto") 
+		if (estaVivo) _elemento.encontradoPor(self) else throw new Exception("esta muerto")
 	}
-	
-	method seIntegraA(_bando){
-		if(estaVivo)bando=_bando else throw new Exception("esta muerto")
-	}
-	
-	//Si un capo se encuentra con otro de su mismo bando, le regala su equipamiento.Pero si es de otro bando pelea  
-	method encontradoPor(_capo){
-		if(self.esDelMismoBando(_capo))self.regalarArtefactos(_capo)else self.pelea(_capo)
-}
 
-	//Da su equipamiento a otro capo
-	method regalarArtefactos(_capo){
-		_capo.resivirArtefactos(self.artefactos())} 
+	method seIntegraA(_bando) {
+		if (estaVivo) {
+			bando = _bando
+		} else {
+			throw new Exception("esta muerto")
+		}
+	}
+
+	// Si un capo se encuentra con otro de su mismo bando, le regala su equipamiento.Pero si es de otro bando pelea  
+	method encontradoPor(_capo) {
+		if (self.esDelMismoBando(_capo)) {
+			self.regalarArtefactos(_capo)
+		} else {
+			self.pelea(_capo)
+		}
+	}
+
+	// Da su equipamiento a otro capo
+	method regalarArtefactos(_capo) {
+		_capo.resivirArtefactos(self.artefactos())
+	}
 
 	// Un capo puede resivir los artefactos de otro capo
-	method resivirArtefactos(_artefactos){
-	artefactos.addAll(_artefactos)
+	method resivirArtefactos(_artefactos) {
+		artefactos.addAll(_artefactos)
 	}
 
 	// Retorna el resultado de sumar los puntos de hechiceria y de lucha
+	method sumaDeAtributos() {
+		return self.lucha() + self.hechiceria()
+	}
 
-	method sumaDeAtributos()= self.lucha()+ self.hechiceria()
-	
-	//Denota true si un capo pertenece al mismo bando que otro capo
-	method esDelMismoBando(_capo)= self.bando()== _capo.bando()
-	
-	//Un capo puede peliar contra otro capo. Vive el q tiene mas puntos de lucha y hechiceria
-	method pelea(_capo){
-	if(self.sumaDeAtributos()< _capo.sumaDeAtributos())self.muerte()else _capo.muerte()	
+	// Denota true si un capo pertenece al mismo bando que otro capo
+	method esDelMismoBando(_capo) = self.bando() == _capo.bando()
 
-}
+	// Un capo puede peliar contra otro capo. Vive el q tiene mas puntos de lucha y hechiceria
+	method pelea(_capo) {
+		if (self.sumaDeAtributos() < _capo.sumaDeAtributos()) {
+			self.muerte()
+		} else {
+			_capo.muerte()
+		}
+	}
+
 	// Cambia el estado de un capo de vivo a muerto
-
-	method muerte(){
-		estaVivo=false
-		if(self.nombre()== "Rolando"){
+	method muerte() {
+		estaVivo = false
+		if (self.nombre() == "Rolando") {
 			game.stop()
 		}
-	} 
-	
+	}
 
-	method imagen()= self.nombre()+"-"+self.estaVivo()+".png"
-	
+	method imagen() = self.nombre() + "-" + self.estaVivo() + ".png"
+
 }
 

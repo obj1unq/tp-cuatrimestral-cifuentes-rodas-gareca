@@ -8,26 +8,15 @@ import modelado.armadura.*
 import wollok.game.*
 
 program rolandoGame {
-	
 	var norte = new Bando()
 	var sur = new Bando()
-	var rolando = new Capo(nombre = "Rolando",bando= sur)
-	var caterina = new Capo(nombre = "Caterina",
-		artefactos = #{espadaDelDestino},
-		bando= sur
-		)
-	var archivaldo = new Capo(nombre = "Archivaldo",
-		artefactos = #{collarDivino,espejoFantastico},
-		bando= norte
-	)
-
+	var rolando = new Capo(nombre = "Rolando", bando = sur)
+	var caterina = new Capo(nombre = "Caterina", artefactos = #{ espadaDelDestino }, bando = sur)
+	var archivaldo = new Capo(nombre = "Archivaldo", artefactos = #{ collarDivino, espejoFantastico }, bando = norte)
 	var persi = new ViejoSabio(nombre = "Perci")
 	var san = new ViejoSabio(nombre = "San")
-	var armadura = new Armadura()
+	var armadura = new Armadura(refuerzo = cotaDeMalla)
 	var armaduraProtegida = new Armadura(refuerzo = bendicion)
-	
-
-
 //	CONFIG	
 	game.title("Rolando")
 	game.height(18)
@@ -35,18 +24,16 @@ program rolandoGame {
 	game.boardGround("fondo.png")
 // Visual
 	game.addVisualCharacterIn(rolando, game.center())
-	game.addVisualIn(sur, posicionRandom.posicionRandom())
-	game.addVisualIn(norte, posicionRandom.posicionRandom())
-	game.addVisualIn(caterina, posicionRandom.posicionRandom())
-	game.addVisualIn(archivaldo, posicionRandom.posicionRandom())
-	game.addVisualIn(san, posicionRandom.posicionRandom())
-	game.addVisualIn(persi, posicionRandom.posicionRandom())
-	game.addVisualIn(armadura, posicionRandom.posicionRandom())
-	game.addVisualIn(armaduraProtegida, posicionRandom.posicionRandom())
-	game.addVisualIn(espadaDelDestino, posicionRandom.posicionRandom())
-	game.addVisualIn(libroDeHechizos, posicionRandom.posicionRandom())
-	game.addVisualIn(collarDivino, posicionRandom.posicionRandom())
-	game.addVisualIn(espejoFantastico, posicionRandom.posicionRandom())
+	game.addVisualIn(caterina, posicion.posicionRandom())
+	game.addVisualIn(archivaldo, posicion.posicionRandom())
+	game.addVisualIn(san, posicion.posicionRandom())
+	game.addVisualIn(persi, posicion.posicionRandom())
+	game.addVisualIn(armadura, posicion.posicionRandom())
+	game.addVisualIn(armaduraProtegida, posicion.posicionRandom())
+	game.addVisualIn(espadaDelDestino, posicion.posicionRandom())
+	game.addVisualIn(libroDeHechizos, posicion.posicionRandom())
+	game.addVisualIn(collarDivino, posicion.posicionRandom())
+	game.addVisualIn(espejoFantastico, posicion.posicionRandom())
 	game.whenCollideDo(rolando, { algo => algo.encontradoPor(rolando) })
 //	START
 	game.start()
