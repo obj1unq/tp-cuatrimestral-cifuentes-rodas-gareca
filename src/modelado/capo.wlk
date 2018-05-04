@@ -92,6 +92,7 @@ class Capo {
 	// Da su equipamiento a otro capo
 	method regalarArtefactos(_capo) {
 		_capo.resivirArtefactos(self.artefactos())
+		artefactos.removeAll(self.artefactos())
 	}
 
 	// Un capo puede resivir los artefactos de otro capo

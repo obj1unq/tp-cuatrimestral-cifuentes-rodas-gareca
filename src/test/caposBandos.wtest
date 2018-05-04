@@ -6,10 +6,10 @@ import modelado.armadura.*
 import modelado.cumuloDeCarbon.*
 import modelado.viejoSabio.*
 
-describe "Rolando, Catalina , Archivaldo y sus bandos"{
+describe "Rolando, Caterina , Archivaldo y sus bandos"{
 
 var rolando = new Capo(nombre="Rolando")
-var catalina= new Capo(nombre="Catalina")
+var caterina= new Capo(nombre="Caterina")
 var archivaldo= new Capo(nombre="Archivaldo")	
 var sur = new Bando()
 var norte= new Bando() 
@@ -20,11 +20,11 @@ var armadura=new Armadura()
 
 	fixture{
 	sur.agregarCapo(rolando)
-	sur.agregarCapo(catalina)
+	sur.agregarCapo(caterina)
 	norte.agregarCapo(archivaldo)
 	rolando.encontrarElemento(cofresito1)
 	rolando.encontrarElemento(carbon)
-	catalina.obtenerUnArtefacto(espadaDelDestino)	
+	caterina.obtenerUnArtefacto(espadaDelDestino)	
 	archivaldo.encontrarElemento(cofresito1)
 	archivaldo.encontrarElemento(cofresito1)
 	archivaldo.encontrarElemento(carbon)
@@ -43,8 +43,8 @@ var armadura=new Armadura()
 
 	}
 
-	test "El bando del Sur agrega a Catalina como miembro"{
-		assert.that(sur.miembros().contains(catalina))	
+	test "El bando del Sur agrega a Caterina como miembro"{
+		assert.that(sur.miembros().contains(caterina))	
 	}
 
 	test "El bando del Norte agrega a Archivaldo como miembro"{
@@ -68,8 +68,8 @@ var armadura=new Armadura()
 	test"Rolando no posee artefactos"{
 		assert.that(rolando.artefactos().isEmpty())
 	}
-	test "Catalina tiene la espada magica"{
-		assert.that(catalina.artefactos().contains(espadaDelDestino))
+	test "Caterina tiene la espada magica"{
+		assert.that(caterina.artefactos().contains(espadaDelDestino))
 	}
 	test "Archivaldo tiene el collar divino y el espejo fantastico"{
 		assert.that(archivaldo.artefactos().contains(collarDivino))
@@ -77,7 +77,7 @@ var armadura=new Armadura()
 	}
 
 	test "Catalina se encuentra con Rolando y le da sus artefactos"{
-		rolando.encontrarElemento(catalina)
+		rolando.encontrarElemento(caterina)
 		assert.that(rolando.artefactos().contains(espadaDelDestino))
 		assert.equals(6,rolando.lucha())
 		assert.equals(1,rolando.hechiceria())
@@ -87,7 +87,7 @@ var armadura=new Armadura()
 	rolando.encontrarElemento(archivaldo)	
 	assert.notThat(rolando.estaVivo())
 	assert.equals(8,archivaldo.sumaDeAtributos())
-	assert. equals(4,rolando.sumaDeAtributos())
+	assert.equals(4,rolando.sumaDeAtributos())
 	}
 
 	test "Rolando se ecuentra con el viejo sabio"{
@@ -96,10 +96,10 @@ var armadura=new Armadura()
 		assert.equals(2,rolando.hechiceria())
 	}
 
-	test"rolando se encuentra con viejo sabio,armadura,catalina y Archivaldo"{
+	test"rolando se encuentra con viejo sabio,armadura,caterina y Archivaldo"{
 		rolando.encontrarElemento(viejo)
 		rolando.obtenerUnArtefacto(armadura)
-		rolando.encontrarElemento(catalina)
+		rolando.encontrarElemento(caterina)
 		rolando.encontrarElemento(archivaldo)
 		assert.notThat(archivaldo.estaVivo())
 		
