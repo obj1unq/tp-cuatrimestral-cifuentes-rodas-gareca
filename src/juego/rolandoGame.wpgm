@@ -8,13 +8,26 @@ import modelado.armadura.*
 import wollok.game.*
 
 program rolandoGame {
-	var rolando = new Capo(nombre = "Rolando")
-	var caterina = new Capo(nombre = "Caterina")
-	var archivaldo = new Capo(nombre = "Archivaldo")
+	
+	var norte = new Bando()
+	var sur = new Bando()
+	var rolando = new Capo(nombre = "Rolando",bando= sur)
+	var caterina = new Capo(nombre = "Caterina",
+		artefactos = #{espadaDelDestino},
+		bando= sur
+		)
+	var archivaldo = new Capo(nombre = "Archivaldo",
+		artefactos = #{collarDivino,espejoFantastico},
+		bando= norte
+	)
+
 	var persi = new ViejoSabio(nombre = "Perci")
 	var san = new ViejoSabio(nombre = "San")
 	var armadura = new Armadura()
 	var armaduraProtegida = new Armadura(refuerzo = bendicion)
+	
+
+
 //	CONFIG	
 	game.title("Rolando")
 	game.height(18)
@@ -22,6 +35,8 @@ program rolandoGame {
 	game.boardGround("fondo.png")
 // Visual
 	game.addVisualCharacterIn(rolando, game.center())
+	game.addVisualIn(sur, posicionRandom.posicionRandom())
+	game.addVisualIn(norte, posicionRandom.posicionRandom())
 	game.addVisualIn(caterina, posicionRandom.posicionRandom())
 	game.addVisualIn(archivaldo, posicionRandom.posicionRandom())
 	game.addVisualIn(san, posicionRandom.posicionRandom())

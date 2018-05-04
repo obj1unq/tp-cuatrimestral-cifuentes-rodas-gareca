@@ -100,7 +100,12 @@ class Capo {
 }
 	// Cambia el estado de un capo de vivo a muerto
 
-	method muerte(){estaVivo=false} 
+	method muerte(){
+		estaVivo=false
+		if(self.nombre()== "Rolando"){
+			game.stop()
+		}
+	} 
 	
 
 	method imagen()= self.nombre()+"-"+self.estaVivo()+".png"
