@@ -6,103 +6,109 @@ import modelado.armadura.*
 import modelado.cumuloDeCarbon.*
 import modelado.viejoSabio.*
 
-describe "Rolando, Caterina , Archivaldo y sus bandos"{
+describe "Rolando, Caterina , Archivaldo y sus bandos" {
 
-var rolando = new Capo(nombre="Rolando")
-var caterina= new Capo(nombre="Caterina")
-var archivaldo= new Capo(nombre="Archivaldo")	
-var sur = new Bando()
-var norte= new Bando() 
-var cofresito1= new Cofresito()
-var carbon= new CumuloDeCarbon()
-var viejo = new ViejoSabio()
-var armadura=new Armadura()	
+	var rolando = new Capo(nombre = "Rolando")
+	var caterina = new Capo(nombre = "Caterina")
+	var archivaldo = new Capo(nombre = "Archivaldo")
+	var sur = new Bando()
+	var norte = new Bando()
+	var cofresito1 = new Cofresito()
+	var carbon = new CumuloDeCarbon()
+	var viejo = new ViejoSabio()
+	var armadura = new Armadura()
 
-	fixture{
-	sur.agregarCapo(rolando)
-	sur.agregarCapo(caterina)
-	norte.agregarCapo(archivaldo)
-	rolando.encontrarElemento(cofresito1)
-	rolando.encontrarElemento(carbon)
-	caterina.obtenerUnArtefacto(espadaDelDestino)	
-	archivaldo.encontrarElemento(cofresito1)
-	archivaldo.encontrarElemento(cofresito1)
-	archivaldo.encontrarElemento(carbon)
-	archivaldo.encontrarElemento(carbon)
-	archivaldo.encontrarElemento(carbon)
-	archivaldo.encontrarElemento(carbon)
-	archivaldo.obtenerUnArtefacto(collarDivino)
-	archivaldo.obtenerUnArtefacto(espejoFantastico)
-	armadura.cambiarRefuerzo(bendicion)
+	fixture {
+		sur.agregarCapo(rolando)
+		sur.agregarCapo(caterina)
+		norte.agregarCapo(archivaldo)
+		rolando.encontrarElemento(cofresito1)
+		rolando.encontrarElemento(carbon)
+		caterina.obtenerUnArtefacto(espadaDelDestino)
+		archivaldo.encontrarElemento(cofresito1)
+		archivaldo.encontrarElemento(cofresito1)
+		archivaldo.encontrarElemento(carbon)
+		archivaldo.encontrarElemento(carbon)
+		archivaldo.encontrarElemento(carbon)
+		archivaldo.encontrarElemento(carbon)
+		archivaldo.obtenerUnArtefacto(collarDivino)
+		archivaldo.obtenerUnArtefacto(espejoFantastico)
+		armadura.cambiarRefuerzo(bendicion)
 	}
 
-
-
-	test "El bando del Sur agrega a Rolando como miembro" {
+	test "1 El bando del Sur agrega a Rolando como miembro" {
 		assert.that(sur.miembros().contains(rolando))
-
 	}
 
-	test "El bando del Sur agrega a Caterina como miembro"{
-		assert.that(sur.miembros().contains(caterina))	
+	test "2 El bando del Sur agrega a Caterina como miembro" {
+		assert.that(sur.miembros().contains(caterina))
 	}
 
-	test "El bando del Norte agrega a Archivaldo como miembro"{
-		assert.that(norte.miembros().contains(archivaldo))	
+	test "3 El bando del Norte agrega a Archivaldo como miembro" {
+		assert.that(norte.miembros().contains(archivaldo))
 	}
-	test "El bando del Sur tiene 100 de tesoro"{
-		assert.equals(100,sur.tesoro())
+
+	test "4 El bando del Sur tiene 100 de tesoro" {
+		assert.equals(100, sur.tesoro())
 	}
-	
-	test "El bando del Norte tiene 200 de tesoro"{
-		assert.equals(200,norte.tesoro())
+
+	test "5 El bando del Norte tiene 200 de tesoro" {
+		assert.equals(200, norte.tesoro())
 	}
-	
-	test "El bando del Sur tiene 50 de carbon"{
-		assert.equals(50,sur.recursos())
+
+	test "El bando del Sur tiene 50 de carbon" {
+		assert.equals(50, sur.recursos())
 	}
-	
-	test "El bando del Norte tiene 200 de carbon"{
-		assert.equals(200,norte.recursos())
+
+	test "6 El bando del Norte tiene 200 de carbon" {
+		assert.equals(200, norte.recursos())
 	}
-	test"Rolando no posee artefactos"{
+
+	test"7 Rolando no posee artefactos" {
 		assert.that(rolando.artefactos().isEmpty())
 	}
-	test "Caterina tiene la espada magica"{
+
+	test "8 Caterina tiene la espada magica" {
 		assert.that(caterina.artefactos().contains(espadaDelDestino))
 	}
-	test "Archivaldo tiene el collar divino y el espejo fantastico"{
+
+	test "9 Archivaldo tiene el collar divino y el espejo fantastico" {
 		assert.that(archivaldo.artefactos().contains(collarDivino))
 		assert.that(archivaldo.artefactos().contains(collarDivino))
+		assert.equals(8, archivaldo.sumaDeAtributos())
 	}
 
-	test "Catalina se encuentra con Rolando y le da sus artefactos"{
+	test "10 Catalina se encuentra con Rolando y le da sus artefactos" {
 		rolando.encontrarElemento(caterina)
 		assert.that(rolando.artefactos().contains(espadaDelDestino))
-		assert.equals(6,rolando.lucha())
-		assert.equals(1,rolando.hechiceria())
-	}
-	
-	test "Rolando muere al enfrentarce a archivaldo"{
-	rolando.encontrarElemento(archivaldo)	
-	assert.notThat(rolando.estaVivo())
-	assert.equals(8,archivaldo.sumaDeAtributos())
-	assert.equals(4,rolando.sumaDeAtributos())
+		assert.equals(6, rolando.lucha())
+		assert.equals(1, rolando.hechiceria())
 	}
 
-	test "Rolando se ecuentra con el viejo sabio"{
+	test "11 Rolando muere al enfrentarce a archivaldo" {
+		assert.that(rolando.estaVivo())
+		assert.that(archivaldo.estaVivo())
+		rolando.encontrarElemento(archivaldo)
+		assert.that(archivaldo.estaVivo())
+		assert.notThat(rolando.estaVivo())
+	}
+
+	test "12 Rolando se ecuentra con el viejo sabio" {
 		rolando.encontrarElemento(viejo)
-		assert.equals(4,rolando.lucha())
-		assert.equals(2,rolando.hechiceria())
+		assert.equals(4, rolando.lucha())
+		assert.equals(2, rolando.hechiceria())
 	}
 
-	test"rolando se encuentra con viejo sabio,armadura,caterina y Archivaldo"{
+	test"13 rolando se encuentra con viejo sabio,armadura,caterina y Archivaldo" {
+		assert.that(rolando.estaVivo())
+		assert.that(archivaldo.estaVivo())
 		rolando.encontrarElemento(viejo)
 		rolando.obtenerUnArtefacto(armadura)
 		rolando.encontrarElemento(caterina)
 		rolando.encontrarElemento(archivaldo)
 		assert.notThat(archivaldo.estaVivo())
-		
+		assert.that(rolando.estaVivo())
 	}
 
 }
+

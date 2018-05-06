@@ -124,14 +124,15 @@ object artefactoNeutro {
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
-object posicion{
+object posicion {
 
 	/*Genera una posicion al azar para la armadura, artefactos y viejo sabio*/
 	method posicionRandom() {
-		return game.at(1.randomUpTo(17), 1.randomUpTo(17))
+		return game.at(1.randomUpTo(20), 1.randomUpTo(14))
 	}
+
 	/*Retorna una posicion fija segun las coordenadas que se les pasa como argumento*/
-	method posicionFija(x,y) {
+	method posicionFija(x, y) {
 		return game.at(x, y)
 	}
 

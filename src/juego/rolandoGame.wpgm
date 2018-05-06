@@ -19,8 +19,8 @@ program rolandoGame {
 	var armaduraProtegida = new Armadura(refuerzo = bendicion)
 //	CONFIG	
 	game.title("Rolando")
-	game.height(18)
-	game.width(18)
+	game.height(15)
+	game.width(22)
 	game.boardGround("fondo.png")
 // Visual
 	game.addVisualCharacterIn(rolando, game.center())

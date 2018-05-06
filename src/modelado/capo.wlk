@@ -69,7 +69,11 @@ class Capo {
 
 	/*un capo se encuentra con cualquier cosa si esta vivo*/
 	method encontrarElemento(_elemento) {
-		if (estaVivo) _elemento.encontradoPor(self) else throw new Exception("esta muerto")
+		if (estaVivo) {
+			_elemento.encontradoPor(self)
+		} else {
+			throw new Exception("esta muerto")
+		}
 	}
 
 	method seIntegraA(_bando) {
@@ -111,21 +115,32 @@ class Capo {
 	// Un capo puede peliar contra otro capo. Vive el q tiene mas puntos de lucha y hechiceria
 	method pelea(_capo) {
 		if (self.sumaDeAtributos() < _capo.sumaDeAtributos()) {
-			self.muerte()
+			self.muerte(self)
 		} else {
-			_capo.muerte()
+			_capo.muerte(_capo)
 		}
 	}
 
 	// Cambia el estado de un capo de vivo a muerto
-	method muerte() {
-		estaVivo = false
-		if (self.nombre() == "Rolando") {
-			game.stop()
+	method muerte(capo) {
+		capo.estaVivo(false)
+		if (capo.nombre() == "Rolando") {
+			game.removeVisual(capo)
+			game.addVisualIn(capo, game.center())
+			game.addVisualIn(ga, game.at(7, 5))
 		}
 	}
 
 	method imagen() = self.nombre() + "-" + self.estaVivo() + ".png"
+
+}
+
+//----------------------------------------------------------------------------------------------------------
+object ga {
+
+	method imagen() {
+		return ("finDelJuego.png")
+	}
 
 }
 
