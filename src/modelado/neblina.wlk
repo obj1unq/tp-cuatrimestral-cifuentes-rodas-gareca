@@ -4,7 +4,6 @@ class Neblina {
 	 * 
 	 */
 	var cosasOcultas = []
-	var property nombre = ""
 
 	method encontradoPor(_capo) {
 		// Le dice al capo que cosas encuentra
@@ -14,6 +13,10 @@ class Neblina {
 
 	method agregarCosaOculta(_cosa) {
 		cosasOcultas.add(_cosa)
+	}
+	
+	method imagen() {
+		return "niebla.png"
 	}
 
 }

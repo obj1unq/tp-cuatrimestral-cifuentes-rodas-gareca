@@ -20,7 +20,7 @@ program rolandoGame {
 	var armaduraProtegida = new Armadura(refuerzo = bendicion)
 	var cofre1 = new Cofresito()
 	var cumuloDeCarbon1 = new CumuloDeCarbon()
-	var niebla = new Neblina(nombre = "niebla", cosasOcultas = [ cofre1, cumuloDeCarbon1 ])
+	var niebla = new Neblina(cosasOcultas = [ cofre1, cumuloDeCarbon1 ])
 //	CONFIG	
 	game.title("Rolando")
 	game.height(15)
