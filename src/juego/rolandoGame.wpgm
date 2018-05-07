@@ -5,6 +5,7 @@ import modelado.capo.*
 import modelado.cumuloDeCarbon.*
 import modelado.viejoSabio.*
 import modelado.armadura.*
+import modelado.neblina.*
 import wollok.game.*
 
 program rolandoGame {
@@ -17,6 +18,9 @@ program rolandoGame {
 	var san = new ViejoSabio(nombre = "San")
 	var armadura = new Armadura(refuerzo = cotaDeMalla)
 	var armaduraProtegida = new Armadura(refuerzo = bendicion)
+	var cofre1 = new Cofresito()
+	var cumuloDeCarbon1 = new CumuloDeCarbon()
+	var niebla = new Neblina(nombre = "niebla", cosasOcultas = [ cofre1, cumuloDeCarbon1 ])
 //	CONFIG	
 	game.title("Rolando")
 	game.height(15)
@@ -34,6 +38,7 @@ program rolandoGame {
 	game.addVisualIn(libroDeHechizos, posicion.posicionRandom())
 	game.addVisualIn(collarDivino, posicion.posicionRandom())
 	game.addVisualIn(espejoFantastico, posicion.posicionRandom())
+	game.addVisualIn(niebla, posicion.posicionRandom())
 	game.whenCollideDo(rolando, { algo => algo.encontradoPor(rolando) })
 //	START
 	game.start()

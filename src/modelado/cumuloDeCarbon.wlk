@@ -5,6 +5,7 @@ class CumuloDeCarbon {
 	/*Aumenta las reservas de carbon del bando*/
 	method encontradoPor(capo) {
 		capo.bando().aumentarReservasDeCarbon()
+			game.removeVisual(self)
 	}
 
 }

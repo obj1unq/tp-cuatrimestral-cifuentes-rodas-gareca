@@ -137,16 +137,3 @@ object posicion {
 	}
 
 }
-
-// CORRECCION: Esta manera de usar excepciones es medio peligrosa, porque el si el problema es que no tiene artefactos anda todo bien, pero también podría pasar
-// CORRECCION: que haya otro problema (un artefacto que anda mal por ejemplo) y te estás comiendo el problema.
-// CORRECCION: como regla general, si se puede resolver el problema por vias normales (sin tener que atrapar un error), utilizamos ese camino.
-// CORRECCION: Una manera de resolverlo es delegar mejor en el capo para que él internamente sepa si tiene artefactos o no.
-// CORRECCION: return capo.puntosDeHechiceriaDelMejorArtefacto(self)
-// CORRECCION: object rolando {
-// CORRECCION:	method puntosDeHechiceriaDelMejorArtefacto(exceptuado) {
-// CORRECCION:		var artefactosValidos = artefactos.filter({art => atr != exceptuado})
-// CORRECCION:		return if artefactosValidos.isEmpty() 0 else artefactosValidos.map({art => art.punstoDeHechiceria()}).max()
-// CORRECCION:	}
-// CORRECCION:}
-// CORRECCION: Hay muchas otras alternativas sin necesidad de caer en el catch

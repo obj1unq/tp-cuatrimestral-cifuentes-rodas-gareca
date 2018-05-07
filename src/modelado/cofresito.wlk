@@ -5,6 +5,7 @@ class Cofresito {
 	/*Aumenta las reservas de oro del bando del sur*/
 	method encontradoPor(capo) {
 		capo.bando().aumentarTesoro(self.cantidadDeOro())
+		game.removeVisual(self)
 	}
 
 }
