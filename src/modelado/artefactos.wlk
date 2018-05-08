@@ -126,8 +126,8 @@ object artefactoNeutro {
 //-------------------------------------------------------------------------------------------------------------------------
 object posicion {
 
-	var ancho = 20
-	var alto = 14
+	var property ancho = 20
+	var property alto = 14
 
 	/*Genera una posicion al azar para la armadura, artefactos y viejo sabio*/
 	method posicionRandom() {
