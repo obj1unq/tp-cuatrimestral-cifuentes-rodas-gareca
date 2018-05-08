@@ -126,6 +126,9 @@ object artefactoNeutro {
 //-------------------------------------------------------------------------------------------------------------------------
 object posicion {
 
+	var ancho = 20
+	var alto = 14
+
 	/*Genera una posicion al azar para la armadura, artefactos y viejo sabio*/
 	method posicionRandom() {
 		return game.at(1.randomUpTo(20), 1.randomUpTo(14))
@@ -133,7 +136,12 @@ object posicion {
 
 	/*Retorna una posicion fija segun las coordenadas que se les pasa como argumento*/
 	method posicionFija(x, y) {
-		return game.at(x, y)
+		if (x.between(1, ancho) && y.between(1, alto)) {
+			return game.at(x, y)
+		} else {
+			throw new Exception("Los valores no pueden superar el ancho o alto de la ventana")
+		}
 	}
 
 }
+

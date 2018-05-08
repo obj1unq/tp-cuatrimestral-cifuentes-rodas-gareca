@@ -124,11 +124,6 @@ class Capo {
 	// Cambia el estado de un capo de vivo a muerto
 	method muerte(capo) {
 		capo.estaVivo(false)
-		if (capo.nombre() == "Rolando") {
-			game.removeVisual(capo)
-			game.addVisualIn(capo, game.center())
-			game.addVisualIn(ga, game.at(7, 5))
-		}
 	}
 
 	method imagen() = self.nombre() + "-" + self.estaVivo() + ".png"
@@ -136,7 +131,7 @@ class Capo {
 }
 
 //----------------------------------------------------------------------------------------------------------
-object ga {
+object gameOver {
 
 	method imagen() {
 		return ("finDelJuego.png")

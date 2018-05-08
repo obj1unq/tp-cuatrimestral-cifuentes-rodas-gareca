@@ -38,8 +38,12 @@ program rolandoGame {
 	game.addVisualIn(libroDeHechizos, posicion.posicionRandom())
 	game.addVisualIn(collarDivino, posicion.posicionRandom())
 	game.addVisualIn(espejoFantastico, posicion.posicionRandom())
-	game.addVisualIn(niebla, posicion.posicionRandom())
-	game.whenCollideDo(rolando, { algo => algo.encontradoPor(rolando) })
+	game.addVisualIn(niebla, posicion.posicionFija(18, 12))
+	game.whenCollideDo(rolando, { algo => algo.encontradoPor(rolando) if(!rolando.estaVivo()){
+			game.removeVisual(rolando)
+			game.addVisualIn(rolando, game.center())
+			game.addVisualIn(gameOver,game.at(7, 4))
+	} })
 //	START
 	game.start()
 }

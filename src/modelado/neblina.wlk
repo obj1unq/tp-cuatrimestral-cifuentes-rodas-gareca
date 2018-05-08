@@ -14,9 +14,9 @@ class Neblina {
 	method agregarCosaOculta(_cosa) {
 		cosasOcultas.add(_cosa)
 	}
-	
+
 	method imagen() {
-		return "niebla.png"
+		return "nieblaN.png"
 	}
 
 }
