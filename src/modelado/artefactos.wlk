@@ -131,7 +131,7 @@ object posicion {
 
 	/*Genera una posicion al azar para la armadura, artefactos y viejo sabio*/
 	method posicionRandom() {
-		return game.at(1.randomUpTo(20), 1.randomUpTo(14))
+		return game.at(1.randomUpTo(ancho), 1.randomUpTo(alto))
 	}
 
 	/*Retorna una posicion fija segun las coordenadas que se les pasa como argumento*/
