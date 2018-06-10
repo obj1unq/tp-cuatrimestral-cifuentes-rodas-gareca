@@ -3,6 +3,7 @@ object espadaDelDestino {
 	const property nombre = "Espada del destino"
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
+	// TODO Este código está repetido en varios lugares, ahora que sabemos herencia podemos evitarlo.
 	method encontradoPor(capo) {
 		capo.obtenerUnArtefacto(self)
 		game.removeVisual(self)
