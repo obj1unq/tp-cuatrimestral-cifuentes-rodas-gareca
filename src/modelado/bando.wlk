@@ -16,9 +16,9 @@ class Bando {
 	}
 
 	/*Aumenta el valor del cumulo de carbon*/
-	method aumentarReservasDeCarbon() {
+	method aumentarReservasDeCarbon(num) {
 		// TODO ¿Por qué el 50 está fijo acá? ¿Eso está bien?
-		recursos += 50
+		recursos += num
 	}
 
 }

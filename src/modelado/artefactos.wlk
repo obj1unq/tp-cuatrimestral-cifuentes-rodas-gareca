@@ -1,6 +1,4 @@
-object espadaDelDestino {
-
-	const property nombre = "Espada del destino"
+class Artefacto {
 
 	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
 	// TODO Este código está repetido en varios lugares, ahora que sabemos herencia podemos evitarlo.
@@ -9,20 +7,11 @@ object espadaDelDestino {
 		game.removeVisual(self)
 	}
 
-	/*Retorna los puntos de lucha que da este artefacto*/
-	method puntosDeLucha(capo) {
-		return 3
-	}
+	method puntosDeHechiceria(capo) = 0
 
-	/*Retorna los puntos de hechiceria que da este artefacto */
-	method puntosDeHechiceria(capo) {
-		return 0
-	}
+	method puntosDeLucha(capo) = 0
 
-	/*Retorna la imagen de la espada del destino*/
-	method imagen() {
-		return "espada.png"
-	}
+	method imagen()
 
 	// CORRECCION: para la próxima entrega ya tienen herramientas para no tener que duplicar este método en todos los artefactos, cámbienlo.
 	/*Retorna la suma de puntos  de hechiceria y lucha que da este artefacto*/
@@ -30,97 +19,87 @@ object espadaDelDestino {
 
 }
 
+//-------------------------------------------------------------------------------------------------------------------------------------
+object espadaDelDestino inherits Artefacto {
+
+	const property nombre = "Espada del Destino"
+
+	/*Retorna los puntos de lucha que da este artefacto*/
+	override method puntosDeLucha(capo) {
+		return 3
+	}
+
+	/*Retorna la imagen de la espada del destino*/
+	override method imagen() {
+		return "espada.png"
+	}
+
+}
+
 //--------------------------------------------------------------------------------------------------------------------------
-object libroDeHechizos {
+object libroDeHechizos inherits Artefacto {
 
 	const property nombre = "Libro de hechizos"
 
-	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
-	method encontradoPor(capo) {
-		capo.obtenerUnArtefacto(self)
-		game.removeVisual(self)
-	}
-
 	/*Retorna los puntos de lucha que da este artefacto*/
-	method puntosDeHechiceria(capo) = capo.hechiceriaBase()
-
-	/*Retorna los puntos de hechiceria que da este artefacto*/
-	method puntosDeLucha(capo) = 0
-
-	/*Retorna la suma de puntos  de hechiceria y lucha que da este artefacto*/
-	method totalPuntosAgrega(capo) = self.puntosDeHechiceria(capo) + self.puntosDeLucha(capo)
+	override method puntosDeHechiceria(capo) = capo.hechiceriaBase()
 
 	/*Retorna la imagen de la espada del destino*/
-	method imagen() {
+	override method imagen() {
 		return "LibroDeHechizos.png"
 	}
 
 }
 
 //----------------------------------------------------------------------------------------------------------
-object collarDivino {
+object collarDivino inherits Artefacto {
 
 	const property nombre = "Collar divino"
 
-	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
-	method encontradoPor(capo) {
-		capo.obtenerUnArtefacto(self)
-		game.removeVisual(self)
-	}
-
 	/*Retorna la imagen de la espada del destino*/
-	method imagen() {
+	override method imagen() {
 		return "collar.png"
 	}
 
 	/*Retorna los puntos de lucha que da este artefacto*/
-	method puntosDeLucha(capo) = 1
+	override method puntosDeLucha(capo) = 1
 
 	/*Retorna los puntos de hechiceria que da este artefacto*/
-	method puntosDeHechiceria(capo) = 1
-
-	/*Retorna la suma de puntos  de hechiceria y lucha que da este artefacto*/
-	method totalPuntosAgrega(capo) = self.puntosDeHechiceria(capo) + self.puntosDeLucha(capo)
+	override method puntosDeHechiceria(capo) = 1
 
 }
 
 // --------------------------------------------------------------------------------------------------------------
-object espejoFantastico {
+object espejoFantastico inherits Artefacto {
 
 	const property nombre = "Espejo fantastico"
 
-	/*Metodo utilizado para las coliciones con el capo que la encuentra*/
-	method encontradoPor(capo) {
-		capo.obtenerUnArtefacto(self)
-		game.removeVisual(self)
-	}
-
 	/*Retorna la imagen de la espada del destino*/
-	method imagen() {
+	override method imagen() {
 		return "EspejoFantastico.png"
 	}
 
 	/*Retorna los puntos de lucha que da este artefacto*/
-	method puntosDeLucha(capo) {
+	override method puntosDeLucha(capo) {
 		return capo.elMejorArtefacto(self).puntosDeLucha(capo)
 	}
 
 	/*Retorna los puntos de hechiceria que da este artefacto*/
-	method puntosDeHechiceria(capo) {
+	override method puntosDeHechiceria(capo) {
 		return capo.elMejorArtefacto(self).puntosDeHechiceria(capo)
 	}
 
 }
 
 //-----------------------------------------------------------------------------------------------------------
-object artefactoNeutro {
+object artefactoNeutro inherits Artefacto {
 
-	/*Objeto utilizado como artefacto neutro para el method elMejor*/
-	method puntosDeLucha(capo) = 0
+	const property nombre = "Artefacto neutro"
 
-	method puntosDeHechiceria(capo) = 0
-
-	method totalPuntosAgrega(capo) = self.puntosDeHechiceria(capo) + self.puntosDeLucha(capo)
+	/*Retorna la imagen de la espada del destino*/
+	override method imagen() {
+		return null
+	}
 
 }
 

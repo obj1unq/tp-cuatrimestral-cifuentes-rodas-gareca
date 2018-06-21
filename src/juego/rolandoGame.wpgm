@@ -25,7 +25,7 @@ program rolandoGame {
 	game.title("Rolando")
 	game.height(15)
 	game.width(22)
-	game.boardGround("fondo.png")
+	game.boardGround("fondoJuego.png")
 // Visual
 	game.addVisualCharacterIn(rolando, game.center())
 	game.addVisualIn(caterina, posicion.posicionRandom())
@@ -39,11 +39,14 @@ program rolandoGame {
 	game.addVisualIn(collarDivino, posicion.posicionRandom())
 	game.addVisualIn(espejoFantastico, posicion.posicionRandom())
 	game.addVisualIn(niebla, posicion.posicionFija(18, 12))
-	game.whenCollideDo(rolando, { algo => algo.encontradoPor(rolando) if(!rolando.estaVivo()){
+	game.whenCollideDo(rolando, { algo =>
+		algo.encontradoPor(rolando)
+		if (!rolando.estaVivo()) {
 			game.removeVisual(rolando)
 			game.addVisualIn(rolando, game.center())
-			game.addVisualIn(gameOver,game.at(7, 4))
-	} })
+			game.addVisualIn(gameOver, game.at(7, 4))
+		}
+	})
 //	START
 	game.start()
 }
